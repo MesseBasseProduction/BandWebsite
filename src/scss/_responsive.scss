@@ -1,0 +1,159 @@
+@media (max-width: 1000px) {
+	nav.site-nav {
+		a {
+			font-size: 1.4rem;
+			padding: 0 .5rem;
+		}
+
+		.socials {
+			display: none;
+		}
+	}
+
+	main.creation {
+		.subpage-nav {
+			bottom: inherit;
+			flex-direction: inherit;
+			height: 2rem;
+			margin: 1rem 0;
+			top: 6rem;
+			width: 100%;
+
+			img {
+				height: 100%;
+				padding: 0 1rem;
+				width: unset;
+			}
+		}
+
+		.music {
+			padding: 0 3rem 0 1rem;
+
+			.band {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 0;
+
+				.band-image {
+					display: none;
+				}
+
+				.band-releases {
+					padding: 2rem 1rem;
+					position: inherit;
+					width: 100%;
+
+					.band-header {
+						h2 {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+
+					.band-albums {
+						.album {
+							height: calc(95% - 3rem);
+						}
+					}
+				}
+			}
+		}
+
+		.video {
+			padding: 0 3rem 0 1rem;
+
+			.video-grid .embed-video h2 {
+				font-size: 1.4rem;
+			}
+		}
+
+		.photo {
+			padding: 0 3rem 0 1rem;
+		}
+	}
+
+	main.contact {
+		section {
+			display: inherit;
+			padding: 3rem 5%;
+		}
+	}
+
+	.modal.credit {
+		padding: 1rem;
+		max-width: inherit;
+		width: 95%;
+	}
+
+	body.links {
+		main {
+			.link-wrapper {
+				padding: 2rem;
+				max-height: 95%;
+				width: 95%;
+
+				img.main-logo {
+					height: 6rem;
+				}
+
+				.link {
+					img {
+						margin: 0 1rem;
+					}
+					
+					P {
+						font-size: 1.2rem;
+						margin-right: 1rem;
+					}
+				}
+			}			
+		}
+	}
+}
+
+@media (max-width: 512px) {
+	main.creation {
+		.music {
+			.band {
+				.band-image {
+					position: inherit;
+					width: 90%;
+				}
+
+				
+				.band-releases {
+					.band-header {
+						span {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-height: 740px) {
+  /* Typically for screen with zoom factor */
+  main.home {
+		display: inherit;
+		overflow-y: auto;
+
+    img {
+      max-width: 25rem;
+    }
+
+    h2 {
+      margin-bottom: 2%;
+      max-width: inherit;
+    }
+	}
+}
+
+@media (max-height: 512px) {
+  main.home img {
+    margin: 2% 0;
+    max-width: 25rem;
+	}
+}

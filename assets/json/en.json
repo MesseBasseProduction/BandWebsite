@@ -1,0 +1,75 @@
+{
+  "band": {
+    "name": "Band Name",
+    "desc": "This is your band's name description",
+    "links": [
+      {
+        "type": "facebook",
+        "name": "Facebook",
+        "url": "https://www.facebook.com/theforgebandfr/"
+      }, {
+        "type": "youtube",
+        "name": "YouTube",
+        "url": "https://www.youtube.com/channel/UCKMz2XoRcvj-UL9ZvOu3fiQ/"
+      }, {
+        "type": "spotify",
+        "name": "Spotify",
+        "url": "https://open.spotify.com/artist/71YUgouAzYQ9NYerniOasC/"
+      }, {
+        "type": "apple",
+        "name": "Apple Music",        
+        "url": "https://music.apple.com/us/artist/nac/1588180391/"
+      }, {
+        "type": "deezer",
+        "name": "Deezer",
+        "url": "https://www.deezer.com/fr/artist/4239205/"
+      }, {
+        "type": "amazon",
+        "name": "Amazon Music",
+        "url": "https://music.amazon.fr/artists/B0933N2ZTY/nac/"
+      }, {
+        "type": "tidal",
+        "name": "Tidal",
+        "url": "https://listen.tidal.com/artist/4106598/"
+      }, {
+        "type": "soundcloud",
+        "name": "SoundCloud",
+        "url": "https://soundcloud.com/baroquerie/"
+      }, {
+        "type": "bandcamp",
+        "name": "Bandcamp",
+        "url": "https://nacband.bandcamp.com/"
+      }, {
+        "type": "discogs",
+        "name": "Discogs",
+        "url": "https://www.discogs.com/artist/10054414-NAC-7/"
+      }, {
+        "type": "genius",
+        "name": "Genius",
+        "url": "https://genius.com/artists/Nac-fra/"
+      }, {
+        "type": "musicbrainz",
+        "name": "MusicBrainz",
+        "url": "https://musicbrainz.org/artist/3e3ccb24-a46b-42ee-b7d4-b87ed2d75333/"
+      }, {
+        "type": "instagram",
+        "name": "Instagram",
+        "url": "https://www.instagram.com/messebasseproduction/"
+      }, {
+        "type": "flickr",
+        "name": "Flickr",
+        "url": "https://www.flickr.com/people/messebasseproduction/"
+      }, {
+        "type": "github",
+        "name": "GitHub",
+        "url": "https://github.com/MesseBasseProduction/"
+      }, {
+        "type": "linkedin",
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/77052847/"
+      }
+    ]
+  },
+  "listenLink": "Check the discography",
+  "treeLink": "Find us online"
+}
