@@ -68,8 +68,73 @@
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/company/77052847/"
       }
+    ],
+    "releases": [
+      {
+        "title": "Dystopie",
+        "artist": "NAC",
+        "cover": "Dystopie.webp",
+        "audio": "DystopieExtract.mp3",
+        "date": "November 9, 2021",
+        "duration": "42:50",
+        "label": "Messe Basse Production",
+        "labelLink": "https://messe-basse-production.com/",
+        "links": [
+          {
+            "type": "spotify",
+            "url": "https://open.spotify.com/artist/71YUgouAzYQ9NYerniOasC/"
+          }, {
+            "type": "apple",
+            "url": "https://music.apple.com/us/artist/nac/1588180391/"
+          }, {
+            "type": "amazon",
+            "url": "https://music.amazon.fr/artists/B0933N2ZTY/nac/"
+          }, {
+            "type": "deezer",
+            "url": "https://www.deezer.com/fr/artist/4239205/"
+          }, {
+            "type": "youtube",
+            "url": "https://www.youtube.com/channel/UCKMz2XoRcvj-UL9ZvOu3fiQ/"
+          }, {
+            "type": "bandcamp",
+            "url": "https://nacband.bandcamp.com/"
+          }
+        ],
+        "moreLinks": [
+          {
+            "type": "tidal",
+            "url": "https://listen.tidal.com/artist/4106598/"            
+          }, {
+            "type": "pandora",
+            "url": "https://github.com/MesseBasseProduction/"            
+          }, {
+            "type": "genius",
+            "url": "https://genius.com/artists/Nac-fra/"            
+          }, {
+            "type": "discogs",
+            "url": "https://www.discogs.com/artist/10054414-NAC-7/"            
+          }, {
+            "type": "musicbrainz",
+            "url": "https://musicbrainz.org/artist/3e3ccb24-a46b-42ee-b7d4-b87ed2d75333/"            
+          }
+        ],
+        "tracks": [
+          {
+            "title": "Crad' Bar Boogie",
+            "duration": "6:16",
+            "composer": "Pierre Toïgo",
+            "author": "David Béché"
+          }
+        ]
+      }
     ]
   },
   "listenLink": "Check the discography",
-  "treeLink": "Find us online"
+  "treeLink": "Find us online",
+  "from": "from",
+  "listenOnline": "Listen online",
+  "seeMore": "see more",
+  "publishedOn": "Released on",
+  "composer": "Composer",
+  "author": "Author"
 }
