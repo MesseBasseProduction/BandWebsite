@@ -1,17 +1,10 @@
-main {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-}
-
 .content {
   background-color: rgba(255, 255, 255, .1);
   border-radius: .5rem;
-  max-height: 95%;
+  height: 100rem;
+  max-height: 90%;
   max-width: 100rem;
-  padding: 3rem 6rem;
+  padding: 6rem 0;
   text-align: center;
 
   img.band-logo {
@@ -19,6 +12,7 @@ main {
   }
 
   .link-wrapper {
+    height: calc(100% - 12rem - 1.5rem); /* Image height and link bottom margin */
     overflow-y: auto;
   }
 
@@ -28,13 +22,13 @@ main {
     border-radius: .5rem;
     color: white;
     display: flex;
-    margin: .75rem 0;
+    margin: .75rem 6rem;
     padding: .5rem 0;
     text-decoration: none;
 
     transition: background-color .2s;
 
-    img {			
+    img {
       height: 2.5rem;
       margin-left: 4rem;
       margin-right: 2rem;

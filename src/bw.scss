@@ -1,38 +1,47 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
-	font-size: 62.5%;
-	height: 100%;
-	overflow: hidden;
-	width: 100%;
+  font-size: 62.5%;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 body {
-	background: #181818;
-	color: #D4D4D4;
-	font-family: sans-serif;
+  background: #181818;
+  color: #D4D4D4;
+  font-family: sans-serif;
 }
 
 a {
-	display: block;
-	color: #56D45B;
-	margin-bottom: 1.5rem;
-	font-size: 1.5rem;
+  display: block;
+  color: #56D45B;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 button {
-	background: rgba(255, 255, 255, .1);
-	border: solid 1px #D4D4D4;
-	border-radius: .5rem;
-	color: #D4D4D4;
-	cursor: pointer;
-	padding: 1rem 2rem;
+  background: rgba(255, 255, 255, .1);
+  border: solid 1px #D4D4D4;
+  border-radius: .5rem;
+  color: #D4D4D4;
+  cursor: pointer;
+  padding: 1rem 2rem;
 }
 
+main {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+@import 'scss/main';
 @import 'scss/listen';
 @import 'scss/tree';
 @import 'scss/responsive';

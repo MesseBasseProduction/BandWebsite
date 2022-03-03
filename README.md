@@ -13,6 +13,7 @@ When cloned, you need to perform several operations so the website is fully cust
 - build assets using `npm install && npm run build`.
 
 \* Favicon can be generated using a website such as [https://www.favicon-generator.org/](https://www.favicon-generator.org/)).
+
 \*\* In the JSON files ; in links, you can erase links that are not relevant for the band. In the releases, links/moreLinks urls should be empty but don't erase them. In the tracks, composer or author can be empty (and will not be displayed) 
 
 Supported links to be displayed :

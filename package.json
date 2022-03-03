@@ -1,14 +1,13 @@
 {
   "name": "bandwebsite",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A template to make a band or artist website ",
   "keywords": [],
   "main": "src/bw.js",
   "scripts": {
     "build": "webpack --config webpack/webpack.prod.js",
     "watch": "webpack --watch --config webpack/webpack.dev.js",
-    "server": "http-server -p 1337 -c-1 -o index.html",
-    "beforecommit": "npm run test && npm run doc && npm run build"
+    "server": "http-server -p 1337 -c-1 -o index.html"
   },
   "homepage": "https://github.com/MesseBasseProduction/BandWebsite/README.md",
   "repository": {
