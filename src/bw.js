@@ -28,7 +28,7 @@ class BW {
   _fetchLang() {
     if (DEBUG === true) { console.log(`1. Fetch language keys with ${this._lang} locale`); }
     return new Promise((resolve, reject) => {
-      fetch(`/assets/json/${this._lang}.json`).then(data => {
+      fetch(`assets/json/${this._lang}.json`).then(data => {
         data.json().then(nlsKeys => {
           if (DEBUG === true) { console.log(`2. Language keys successfully retrieven`); }
           this._nls = nlsKeys;
@@ -93,10 +93,10 @@ class BW {
       // Update active release
       const release = this._nls.band.releases[activeRelease];
       // Update blurred backgrounds
-      document.getElementById('release-background').style.backgroundImage = `url('/assets/img/releases/${release.cover}')`;
-      document.getElementById('release-background-bottom').style.backgroundImage = `url('/assets/img/releases/${release.cover}')`;
+      document.getElementById('release-background').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
+      document.getElementById('release-background-bottom').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
       // Update release primitive information
-      document.getElementById('release-cover').src = `/assets/img/releases/${release.cover}`;
+      document.getElementById('release-cover').src = `assets/img/releases/${release.cover}`;
       document.getElementById('release-duration').innerHTML = release.duration;
       document.getElementById('release-title').innerHTML = release.title;
       document.getElementById('release-artist').innerHTML = release.artist;
@@ -121,13 +121,13 @@ class BW {
           target: document.getElementById('release-tracklist')
         });
       }
-      audio = new Audio(`/assets/audio/${release.audio}`);
+      audio = new Audio(`assets/audio/${release.audio}`);
       handlePlayback(audio);
     };
     // Handle the audio playback and events
     const handlePlayback = () => {
       const button = document.getElementById('play-pause');
-      button.src = '/assets/img/controls/play.svg';
+      button.src = 'assets/img/controls/play.svg';
       const progressTrack = document.getElementById('progress-bar');
       const progress = document.getElementById('current-progress');
       let playing = false;
@@ -135,11 +135,11 @@ class BW {
       button.addEventListener('click', () => {
         if (playing === true) {
           playing = false;
-          button.src = '/assets/img/controls/play.svg';
+          button.src = 'assets/img/controls/play.svg';
           audio.pause();
         } else {
           playing = true;
-          button.src = '/assets/img/controls/pause.svg';
+          button.src = 'assets/img/controls/pause.svg';
           audio.play();
         }
       });
@@ -151,7 +151,7 @@ class BW {
       audio.addEventListener('ended', () => {
         audio.currentTime = 0;
         progress.style.width = '0';
-        button.src = '/assets/img/controls/play.svg';
+        button.src = 'assets/img/controls/play.svg';
         playing = false;
       });
       // User manually seek a part of audio
@@ -189,7 +189,7 @@ class BW {
     });
     // Open modal event
     document.getElementById('see-more-links').addEventListener('click', () => {
-      fetch('/assets/html/seemoremodal.html').then(data => {
+      fetch('assets/html/seemoremodal.html').then(data => {
         overlay.style.display = 'flex';
         data.text().then(htmlString => {
           overlay.appendChild(document.createRange().createContextualFragment(htmlString));
@@ -217,7 +217,7 @@ class BW {
     for (let i = 0; i < this._nls.band.links.length; ++i) {
       document.querySelector('#link-wrapper').innerHTML += `
       <a href="${this._nls.band.links[i].url}" class="link" target="_blank" rel="noopener noreferrer">
-        <img src="/assets/img/logo/${this._nls.band.links[i].type}.svg" width="25px">
+        <img src="assets/img/logo/${this._nls.band.links[i].type}.svg" width="25px">
         <p>${this._nls.band.links[i].name}</p>
       </a>
       `;
