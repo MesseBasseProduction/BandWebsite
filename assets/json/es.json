@@ -1,0 +1,15 @@
+{
+  "band": {
+    "name": "Nombre de la banda",
+    "desc": "Descripción de la banda"
+  },
+  "listenLink": "Ver la discografia",
+  "treeLink": "Encuéntrenos en línea",
+  "from": "de",
+  "listenOnline": "Escuche en línea",
+  "seeMore": "ver más",
+  "publishedOn": "Publicado en",
+  "composer": "Compositor",
+  "author": "Autor",
+  "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+}

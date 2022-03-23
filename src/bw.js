@@ -8,13 +8,15 @@ class BW {
 
 
   constructor() {
-    this._lang = (navigator.language === 'fr') ? 'fr' : 'en';
+    this._lang = (['fr', 'es', 'de'].indexOf(navigator.language) !== -1) ? navigator.language : 'en';
     this._nls = null;
-    this._version = '0.1.0';
+    this._band = null;
+    this._version = '0.2.0';
 
     if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Begin website initialization`); }
 
     this._fetchLang()
+      .then(this._fetchBandInfo.bind(this))
       .then(this._init.bind(this))
       .catch(err => { // Error are displayed even if DEBUG is set to false, to notify end user to contact support
         console.error(`BandWebsite v${this._version} : Fatal error during initialization, please contact support :\n`, err);
@@ -45,8 +47,28 @@ class BW {
   }
 
 
+  _fetchBandInfo() {
+    if (DEBUG === true) { console.log(`1. Fetch band links and releases`); }
+    return new Promise((resolve, reject) => {
+      fetch(`assets/json/band.json`).then(data => {
+        data.json().then(bandKeys => {
+          if (DEBUG === true) { console.log(`2. Links and releases successfully retrieven`); }
+          this._band = bandKeys;
+          resolve();
+        }).catch(err => {
+          if (DEBUG === true) { console.log(`Err. Can't parse language keys, the JSON file may be is invalid`); }
+          reject(err);
+        });
+      }).catch(err => {
+        if (DEBUG === true) { console.log(`Err. Couldn't retrieve language keys`); }
+        reject(err);
+      });
+    });    
+  }
+
+
   _init() {
-    if (DEBUG === true) { console.log(`3. Build HTML DOM depending on the page type`); }
+    if (DEBUG === true) { console.log(`5. Build HTML DOM depending on the page type`); }
     return new Promise((resolve, reject) => {
       if (document.body.dataset.type === 'index') {
         this._buildIndexPage();
@@ -64,7 +86,7 @@ class BW {
 
 
   _buildIndexPage() {
-    if (DEBUG === true) { console.log(`4. Init website with the artist main page`); }
+    if (DEBUG === true) { console.log(`6. Init website with the artist main page`); }
     document.querySelector('#band-name').innerHTML = this._nls.band.name;
     document.querySelector('#band-desc').innerHTML = this._nls.band.desc;
     document.querySelector('#listen-link').innerHTML = this._nls.listenLink;
@@ -73,7 +95,7 @@ class BW {
 
 
   _buildListenPage() {
-    if (DEBUG === true) { console.log(`4. Init website with the artist listen page`); }
+    if (DEBUG === true) { console.log(`6. Init website with the artist listen page`); }
     // Update page nls
     document.querySelector('#release-from').innerHTML = this._nls.from;
     document.querySelector('#listen-online').innerHTML = this._nls.listenOnline;
@@ -91,7 +113,7 @@ class BW {
       audio.currentTime = 0;
       progress.style.width = '0';
       // Update active release
-      const release = this._nls.band.releases[activeRelease];
+      const release = this._band.releases[activeRelease];
       // Update blurred backgrounds
       document.getElementById('release-background').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
       document.getElementById('release-background-bottom').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
@@ -100,7 +122,7 @@ class BW {
       document.getElementById('release-duration').innerHTML = release.duration;
       document.getElementById('release-title').innerHTML = release.title;
       document.getElementById('release-artist').innerHTML = release.artist;
-      document.getElementById('release-date').innerHTML = release.date;
+      document.getElementById('release-date').innerHTML = this._buildReleaseDate(release.date);
       document.getElementById('label-link').innerHTML = release.label;
       document.getElementById('label-link').href = release.labelLink;
       // Update view links according to the selected release
@@ -164,18 +186,18 @@ class BW {
       });
     };
     // Previous and next release event handling if more than one release
-    if (this._nls.band.releases.length === 1) {
+    if (this._band.releases.length === 1) {
       document.getElementById('release-previous').style.display = 'none';
       document.getElementById('release-next').style.display = 'none';
     } else {
       document.getElementById('release-previous').addEventListener('click', e => {
         e.target.blur();
-        activeRelease = (this._nls.band.releases.length + activeRelease - 1) % this._nls.band.releases.length;
+        activeRelease = (this._band.releases.length + activeRelease - 1) % this._band.releases.length;
         updateRelease(activeRelease);
       });
       document.getElementById('release-next').addEventListener('click', e => {
         e.target.blur();
-        activeRelease = (activeRelease + 1) % this._nls.band.releases.length;
+        activeRelease = (activeRelease + 1) % this._band.releases.length;
         updateRelease(activeRelease);
       });
     }
@@ -193,7 +215,7 @@ class BW {
         overlay.style.display = 'flex';
         data.text().then(htmlString => {
           overlay.appendChild(document.createRange().createContextualFragment(htmlString));
-          const release = this._nls.band.releases[activeRelease];
+          const release = this._band.releases[activeRelease];
           for (let i = 0; i < release.moreLinks.length; ++i) {
             if (release.moreLinks[i].url === '') { // Link type has no url and should be disabled
               document.getElementById(release.moreLinks[i].type).classList.add('disabled'); // Only disabled button
@@ -212,13 +234,13 @@ class BW {
 
 
   _buildTreePage() {
-    if (DEBUG === true) { console.log(`4. Init website with the artist link tree`); }
+    if (DEBUG === true) { console.log(`6. Init website with the artist link tree`); }
     // Iterate over link to create link content
-    for (let i = 0; i < this._nls.band.links.length; ++i) {
+    for (let i = 0; i < this._band.links.length; ++i) {
       document.querySelector('#link-wrapper').innerHTML += `
-      <a href="${this._nls.band.links[i].url}" class="link" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/logo/${this._nls.band.links[i].type}.svg" width="25px">
-        <p>${this._nls.band.links[i].name}</p>
+      <a href="${this._band.links[i].url}" class="link" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/logo/${this._band.links[i].type}.svg" width="25px">
+        <p>${this._band.links[i].name}</p>
       </a>
       `;
     }
@@ -230,6 +252,16 @@ class BW {
 
 
   // Utils for listen page
+
+
+  _buildReleaseDate(date) {
+    const dateArray = date.split('-');
+    if (this._lang === 'en') {
+      return `${this._nls.months[dateArray[1] - 1]} ${dateArray[0].replace(/^0+/, '')}, ${dateArray[2]}`;
+    } else {
+      return `${dateArray[0].replace(/^0+/, '')} ${this._nls.months[dateArray[1] - 1]} ${dateArray[2]}`;
+    }
+  }
 
 
   _buildTrackCredits(tracks) {

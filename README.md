@@ -1,6 +1,6 @@
 # BandWebsite
 
-A band's website template with a description, a page to listen tracks and finally, a link tree to share all of the band's links!
+A band's website template with a description, a page to listen tracks and finally, a link tree to share all of the band's links! Translated in FR, EN, ES, DE.
 
 When cloned, you need to perform several operations so the website is fully customized to your need :
 
@@ -8,7 +8,8 @@ When cloned, you need to perform several operations so the website is fully cust
 - replace the band logo and the favicons\* in `assets/img/` ;
 - fill `assets/audio/` with mp3 extracts of the releases you want to make available to listeners ;
 - fill `assets/img/releases/` with releases' artworks ;
-- fill the `assets/json/{lang}.json` with the band information, links and releases\*\* ;
+- fill the `assets/json/{lang}.json` with the band information ;
+- fill the `assets/json/band.json` with artist links and releases\*\* ;
 - create your custom `index.html` file so it reflect the band's will ;
 - build assets using `npm install && npm run build`.
 
