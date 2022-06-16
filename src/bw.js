@@ -8,7 +8,7 @@ class BW {
 
 
   constructor() {
-    this._lang = (['fr', 'es', 'de'].indexOf(navigator.language) !== -1) ? navigator.language : 'en';
+    this._lang = (['fr', 'es', 'de'].indexOf(navigator.language.substring(0, 2)) !== -1) ? navigator.language.substring(0, 2) : 'en';
     this._nls = null;
     this._band = null;
     this._version = '0.2.0';
