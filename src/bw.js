@@ -89,8 +89,8 @@ class BW {
     if (DEBUG === true) { console.log(`6. Init website with the artist main page`); }
     document.querySelector('#band-name').innerHTML = this._nls.band.name;
     document.querySelector('#band-desc').innerHTML = this._nls.band.desc;
-    document.querySelector('#listen-link').innerHTML = `<img src="/assets/img/controls/disc.svg" alt="listen">${this._nls.listenLink}`;
-    document.querySelector('#tree-link').innerHTML = `<img src="/assets/img/controls/find.svg" alt="listen">${this._nls.treeLink}`;
+    document.querySelector('#listen-link').innerHTML = `<img src="./assets/img/controls/disc.svg" alt="listen">${this._nls.listenLink}`;
+    document.querySelector('#tree-link').innerHTML = `<img src="./assets/img/controls/find.svg" alt="listen">${this._nls.treeLink}`;
     document.querySelector('#musicians-section').innerHTML = this._nls.musicians;
     document.querySelector('#works-section').innerHTML = this._nls.works;
 
