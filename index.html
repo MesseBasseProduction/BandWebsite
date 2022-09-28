@@ -8,6 +8,7 @@
   <meta content="initial-scale=1" name="viewport"/>
   <meta name="description" content="Your band's description">
   <link rel="canonical" href="https://band.url/"/>
+  <link rel="stylesheet" href="https://arthurbeaulieu.github.io/ScrollBar.js/dist/ScrollBar.bundle.css"/>
   <link rel="stylesheet" href="./assets/dist/BW.bundle.css"/>
   <!-- Favicon zone -->
   <link rel="apple-touch-icon" sizes="57x57" href="./assets/img/favicon/apple-icon-57x57.png">
@@ -36,22 +37,33 @@
   <meta property="og:type" content="website"/>
   <!-- Twitter card meta -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <!--   <meta name="twitter:site" content="@nomtwitter"> -->
+  <meta name="twitter:site" content="@username">
   <meta name="twitter:title" content="Your band's name"/>
   <meta name="twitter:description" content="Your band's description"/>
   <meta name="twitter:image:src" content="./assets/img/logo-social.png"/>
 </head>
 <body data-type="index">
-<main>
-  <!-- This is a basic template for navigate in website, update design as expected -->
-  <div class="band-info">
-    <img src="./assets/img/logo-small.png" alt="band-logo">
+<main class="bio">
+  <nav>
+    <img src="./assets/img/logo-small.png" class="band-logo" alt="band-logo">
     <h1 id="band-name"></h1>
     <h2 id="band-desc"></h2>
-    <a href="./listen.html" id="listen-link" alt="listen-band"></a>
-    <a href="./tree.html" id="tree-link" alt="find-band-online"></a>
-  </div>
+    <div class="links">
+      <a href="./listen.html" id="listen-link" alt="listen-band"></a>
+      <a href="./tree.html" id="tree-link" alt="find-band-online"></a>
+    </div>
+  </nav>
+  <h3 id="musicians-section"></h3>
+  <section id="artists"></section>
+  <h3 id="works-section"></h3>
+  <section id="releases"></section>
+  <footer>
+    <a href="https://messe-basse-production.com" target="_blank" rel="noreferrer noopener">Messe Basse Production</a>
+    <p>2022</p>
+  </footer>
 </main>
+<div id="modal-overlay" class="modal-overlay"></div>
+<script type="text/javascript" src="https://arthurbeaulieu.github.io/ScrollBar.js/dist/ScrollBar.bundle.js"></script>
 <script type="text/javascript" src="./assets/dist/BW.bundle.js"></script>
 <script type="text/javascript">window.BW = new BW();</script>
 </body>

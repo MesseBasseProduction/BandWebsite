@@ -1,3 +1,9 @@
+:root {
+  --mg-lg: 3.6rem;
+  --mg: 2.6rem;
+  --transition: .2s;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +18,7 @@ html, body {
 }
 
 body {
-  background: #181818;
+  background: linear-gradient(#181818, #383838);
   color: #D4D4D4;
   font-family: sans-serif;
 }
@@ -39,6 +45,45 @@ main {
   height: 100%;
   justify-content: center;
   width: 100%;
+}
+
+.home {
+  position: fixed;
+  height: 2rem;
+  left: 2rem;
+  top: 2rem;
+  width: 2rem;
+  z-index: 3;
+  filter: invert(1);
+  transition: filter .2s;
+
+  &:active,
+  &:focus,
+  &:hover {
+    filter: invert(1) drop-shadow(0 0 0.25rem rgba(0, 0, 0, .7));
+  }
+}
+
+
+.modal-overlay {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  display: none;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all .4s;
+
+  .modal {
+    background: rgba(25, 25, 25, .95);
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem rgba(255, 255, 255, .3);
+    padding: 3rem;
+  }
 }
 
 @import 'scss/main';

@@ -11,7 +11,7 @@ class BW {
     this._lang = (['fr', 'es', 'de'].indexOf(navigator.language.substring(0, 2)) !== -1) ? navigator.language.substring(0, 2) : 'en';
     this._nls = null;
     this._band = null;
-    this._version = '0.2.0';
+    this._version = '0.2.1';
 
     if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Begin website initialization`); }
 
@@ -89,8 +89,48 @@ class BW {
     if (DEBUG === true) { console.log(`6. Init website with the artist main page`); }
     document.querySelector('#band-name').innerHTML = this._nls.band.name;
     document.querySelector('#band-desc').innerHTML = this._nls.band.desc;
-    document.querySelector('#listen-link').innerHTML = this._nls.listenLink;
-    document.querySelector('#tree-link').innerHTML = this._nls.treeLink;
+    document.querySelector('#listen-link').innerHTML = `<img src="/assets/img/controls/disc.svg" alt="listen">${this._nls.listenLink}`;
+    document.querySelector('#tree-link').innerHTML = `<img src="/assets/img/controls/find.svg" alt="listen">${this._nls.treeLink}`;
+    document.querySelector('#musicians-section').innerHTML = this._nls.musicians;
+    document.querySelector('#works-section').innerHTML = this._nls.works;
+
+    for (let i = 0; i < this._band.members.length; ++i) {
+      const container = document.createElement('DIV');
+      container.dataset.artist = this._band.members[i].fullName;
+      const picture = document.createElement('IMG');
+      picture.src = `./assets/img/artists/${this._band.members[i].picture}`;
+      const label = document.createElement('P');
+      label.innerHTML = `
+        ${this._band.members[i].fullName}<br>
+        <span>© ${this._band.members[i].pictureCredit}</span><br>
+        <span id="learn-more" class="learn-more">${this._nls.learnMore}</span>
+      `;
+      container.addEventListener('click', this._artistModal.bind(this, this._band.members[i]));
+      container.appendChild(picture);
+      container.appendChild(label);
+      document.getElementById('artists').appendChild(container);
+    }
+
+    for (let i = 0; i < this._band.releases.length; ++i) {
+      const container = document.createElement('DIV');
+      container.dataset.url = this._getReleaseLink(this._band.releases[i].links);
+      const picture = document.createElement('IMG');
+      picture.src = `./assets/img/releases/${this._band.releases[i].cover}`;
+      const label = document.createElement('P');
+      label.innerHTML = `
+        ${this._band.releases[i].title}<br>
+        <span>${this._band.releases[i].artist}</span><br>
+        <span>${this._buildReleaseDate(this._band.releases[i].date)}</span>
+      `;
+      container.addEventListener('click', this._openReleaseVideo.bind(this, container.dataset.url));
+      container.appendChild(picture);
+      container.appendChild(label);
+      document.getElementById('releases').appendChild(container);      
+    }
+
+    new window.ScrollBar({
+      target: document.body
+    });
   }
 
 
@@ -248,6 +288,55 @@ class BW {
     new window.ScrollBar({
       target: document.getElementById('link-wrapper')
     });
+  }
+
+
+  // Utils for main page
+
+
+  _artistModal(artist) {
+    const overlay = document.getElementById('modal-overlay');
+    // Blur modal event
+    document.getElementById('modal-overlay').addEventListener('click', () => {
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.innerHTML = '';
+        overlay.style.display = 'none';
+      }, 400);
+    });
+    // Open modal event
+    fetch(`assets/html/biomodal.html`).then(data => {
+      overlay.style.display = 'flex';
+      data.text().then(htmlString => {
+        const container = document.createRange().createContextualFragment(htmlString);
+        container.querySelector('#artist-name').innerHTML = artist.fullName;
+        container.querySelector('#artist-picture').src = `./assets/img/artists/${artist.picture}`;
+        container.querySelector('#artist-bio').innerHTML = artist.bio[this._lang];
+        overlay.appendChild(container);
+        requestAnimationFrame(() => overlay.style.opacity = 1);
+      });
+    }).catch(e => console.error(e) );
+  }
+
+
+  _getReleaseLink(links) {
+    let url = '';
+    for (let i = 0; i < links.length; ++i) { 
+      if (links[i].url !== '') {
+        url = links[i].url;
+
+        if (links[i].type === 'youtube') {
+          return links[i].url;
+        }
+      }
+    }
+
+    return url;
+  }
+
+
+  _openReleaseVideo(url) {
+    window.open(url, '_blank').focus();
   }
 
 
