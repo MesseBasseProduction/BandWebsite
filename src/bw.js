@@ -1,3 +1,4 @@
+import { Color, Solver } from './js/FilterGenerator.js';
 import './bw.scss';
 
 
@@ -11,13 +12,15 @@ class BW {
     this._lang = (['fr', 'es', 'de'].indexOf(navigator.language.substring(0, 2)) !== -1) ? navigator.language.substring(0, 2) : 'en';
     this._nls = null;
     this._band = null;
-    this._version = '0.2.1';
+    this._mainScroll = null;
+    this._version = '1.0.0';
 
     if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Begin website initialization`); }
 
     this._fetchLang()
       .then(this._fetchBandInfo.bind(this))
       .then(this._init.bind(this))
+      .then(this._buildPage.bind(this))
       .catch(err => { // Error are displayed even if DEBUG is set to false, to notify end user to contact support
         console.error(`BandWebsite v${this._version} : Fatal error during initialization, please contact support :\n`, err);
       })
@@ -68,7 +71,29 @@ class BW {
 
 
   _init() {
-    if (DEBUG === true) { console.log(`5. Build HTML DOM depending on the page type`); }
+    if (DEBUG === true) { console.log(`5. Updatde css to take color and style value into account`); }
+    return new Promise((resolve, reject) => {
+      // Only update cs variables if precised in band.json, keep default otherwise
+      if (this._band.styles) {
+        document.documentElement.style.setProperty('--mainColor', this._band.styles.mainColor);
+        document.documentElement.style.setProperty('--gradientStart', this._band.styles.gradientStart);
+        document.documentElement.style.setProperty('--gradientEnd', this._band.styles.gradientEnd);
+        // Create filter css rule from main color color
+        const rgb = Color.hexToRgb(this._band.styles.mainColor);
+        const color = new Color(rgb[0], rgb[1], rgb[2]);
+        const solver = new Solver(color);
+        const result = solver.solve();
+        document.documentElement.style.setProperty('--imageFilter', result.filter);
+        resolve();
+      } else {
+        reject(new Error('Not styles found in JSON file'));
+      }
+    });
+  }
+
+
+  _buildPage() {
+    if (DEBUG === true) { console.log(`6. Build HTML DOM depending on the page type`); }
     return new Promise((resolve, reject) => {
       if (document.body.dataset.type === 'index') {
         this._buildIndexPage();
@@ -127,10 +152,19 @@ class BW {
       container.appendChild(label);
       document.getElementById('releases').appendChild(container);      
     }
-
-    new window.ScrollBar({
-      target: document.body
-    });
+    // Force timeout to wait for draw, then raf to display scroll
+    setTimeout(() => {
+      this._mainScroll = new window.ScrollBar({
+        target: document.body,
+        style: {
+          color: this._band.styles.mainColor
+        }
+      });
+      // Force raf after scroll creation to make scrollbar properly visible
+      requestAnimationFrame(() => {
+        this._mainScroll.updateScrollbar();
+      });
+    }, 100);
   }
 
 
@@ -284,10 +318,20 @@ class BW {
       </a>
       `;
     }
+    // Force timeout to wait for draw, then raf to display scroll
+    setTimeout(() => {
+      this._mainScroll = new window.ScrollBar({
+        target: document.getElementById('link-wrapper'),
+        style: {
+          color: this._band.styles.mainColor
+        }
+      });
+      // Force raf after scroll creation to make scrollbar properly visible
+      requestAnimationFrame(() => {
+        this._mainScroll.updateScrollbar();
+      });
+    }, 100);
 
-    new window.ScrollBar({
-      target: document.getElementById('link-wrapper')
-    });
   }
 
 

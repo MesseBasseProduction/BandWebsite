@@ -203,7 +203,7 @@ section.track-links {
       &:active,
       &:focus,
       &:hover {
-        color: #56D45B;
+        color: var(--mainColor);
       }
     }
   }
@@ -291,7 +291,7 @@ section.credits {
       &:active,
       &:focus,
       &:hover {
-        color: #56D45B;
+        color: var(--mainColor);
       }
     }
   }

@@ -2,6 +2,11 @@
   --mg-lg: 3.6rem;
   --mg: 2.6rem;
   --transition: .2s;
+
+  --mainColor: #56D45B;
+  --gradientStart: #374737;
+  --gradientEnd: #70CA72;
+  --imageFilter: invert(27%) sepia(28%) saturate(5861%) hue-rotate(138.3deg) brightness(120%) contrast(70%);
 }
 
 * {
@@ -25,7 +30,7 @@ body {
 
 a {
   display: block;
-  color: #56D45B;
+  color: var(--mainColor);
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
 }

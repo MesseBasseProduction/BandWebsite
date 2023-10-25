@@ -124,7 +124,7 @@
   }
 
   main.bio section {
-    max-width: 90%;
+    max-width: 85%;
   }
 }
 
@@ -154,7 +154,13 @@
       flex-direction: column;
   
       a {
-        margin: 1rem 0;      
+        margin: 1rem 0;
+        justify-content: center;
+        width: 85%;
+        
+        img {
+          margin-left: 0;
+        }
       }
     }
 

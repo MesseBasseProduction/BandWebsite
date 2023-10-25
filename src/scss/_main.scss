@@ -6,7 +6,6 @@ main.bio {
 
   img, h2 {
     margin: 0 auto;
-    max-width: 400px;
   }
 
   img.band-logo {
@@ -20,7 +19,7 @@ main.bio {
   }
 
   nav {
-    background-color: rgba(45, 66, 48, 0.67);
+    background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
     margin-bottom: var(--mg-lg);
     padding: var(--mg-lg) 0;
     text-align: center;
@@ -47,7 +46,7 @@ main.bio {
 
       a {
         align-items: center;
-        border: solid .2rem #56D45B;
+        border: solid .2rem var(--mainColor);
         border-radius: .5rem;
         display: flex;
         margin: 0 1rem;
@@ -58,7 +57,7 @@ main.bio {
         &:active,
         &:focus,
         &:hover {
-          background-color: rgba(102, 230, 107, .1);
+          background-color: rgba(24, 24, 24, .5);
 
           img {
             transform: scale(1.1);
@@ -68,7 +67,7 @@ main.bio {
         img {
           height: 1.5rem;
           margin-right: 1.5rem;
-          filter: invert(27%) sepia(28%) saturate(5861%) hue-rotate(138.3deg) brightness(120%) contrast(70%);
+          filter: var(--imageFilter);
           transition: transform var(--transition);
         }
       }
@@ -77,14 +76,16 @@ main.bio {
 
   section {
     display: grid;
+    grid-gap: 1rem;
     grid-template-columns: 50% 50%;
     margin-bottom: var(--mg-lg);
     max-width: 60%;
 
     div {
+      aspect-ratio: 1 / 1;
+      display: flex;
       cursor: pointer;
       position: relative;
-      margin: 1rem;
       transition: transform var(--transition), box-shadow var(--transition);
 
       &:active,
@@ -96,18 +97,20 @@ main.bio {
     }
 
     img {
+      height: 100%;
       width: 100%;
 
       &:active + p,
       &:focus + p,
       &:hover + p {
         opacity: 1;
+        pointer-events: none;
       }
     }
 
     p {
       align-items: center;
-      background: linear-gradient(transparent 10%, rgba(0, 0, 0, 1));
+      background: linear-gradient(transparent 10%, rgba(0, 0, 0, .5) 33%, rgba(0, 0, 0, 1));
       bottom: 0;
       display: flex;
       flex-direction: column;
@@ -121,6 +124,13 @@ main.bio {
       text-align: center;
       width: 100%;
       transition: opacity var(--transition);
+
+      &:active,
+      &:focus,
+      &:hover {
+        opacity: 1;
+        pointer-events: none;
+      }
     }
 
     span {
@@ -135,7 +145,7 @@ main.bio {
   }
 
   footer {
-    background-color: rgba(45, 66, 48, 0.67);
+    background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
     padding: var(--mg-lg) 0;
     text-align: center;
     width: 100%;
@@ -149,7 +159,7 @@ main.bio {
       &:active,
       &:focus,
       &:hover {
-        color: #56D45B;
+        color: var(--mainColor);
       }
     }
   }
