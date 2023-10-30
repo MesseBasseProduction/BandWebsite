@@ -2,42 +2,60 @@ import { Color, Solver } from './js/FilterGenerator.js';
 import './bw.scss';
 
 
-const DEBUG = true;
+const DEBUG = false;
 
 
 class BW {
 
 
   constructor() {
-    this._lang = (['fr', 'es', 'de'].indexOf(navigator.language.substring(0, 2)) !== -1) ? navigator.language.substring(0, 2) : 'en';
+    this._lang = localStorage.getItem('website-lang');
+    if (this._lang === null) {
+      this._lang = (['fr', 'es', 'de', 'en'].indexOf(navigator.language.substring(0, 2)) !== -1) ? navigator.language.substring(0, 2) : 'en';
+      localStorage.setItem('website-lang', this._lang);
+    }
     this._nls = null;
     this._band = null;
     this._mainScroll = null;
-    this._version = '1.3.0'; // Based on v1.1.0 of BandWebsite
+    this._version = '1.1.0';
 
-    if (DEBUG === true) { console.log(`nac.band v${this._version} : Begin website initialization`); }
+    if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Begin website initialization`); }
 
-    this._fetchLang()
+    this._initLang()
       .then(this._fetchBandInfo.bind(this))
       .then(this._init.bind(this))
       .then(this._buildPage.bind(this))
       .then(this._events.bind(this))
       .catch(err => { // Error are displayed even if DEBUG is set to false, to notify end user to contact support
-        console.error(`nac.band v${this._version} : Fatal error during initialization, please contact support :\n`, err);
+        console.error(`BandWebsite v${this._version} : Fatal error during initialization, please contact support :\n`, err);
       })
       .finally(() => {
-        if (DEBUG === true) { console.log(`nac.band v${this._version} : Website initialization done`); }
+        if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Website initialization done`); }
       });
   }
 
 
-  _fetchLang() {
+  _initLang() {
     if (DEBUG === true) { console.log(`1. Fetch language keys with ${this._lang} locale`); }
     return new Promise((resolve, reject) => {
       fetch(`assets/json/${this._lang}.json`).then(data => {
         data.json().then(nlsKeys => {
           if (DEBUG === true) { console.log(`2. Language keys successfully retrieven`); }
           this._nls = nlsKeys;
+
+          const select = document.getElementById('lang-select');
+          for (let i = 0; i < select.children.length; ++i) {
+            select.children[i].innerHTML = this._nls.lang[select.children[i].value];
+            if (select.children[i].value === this._lang) {
+              select.children[i].setAttribute('selected', true);
+            }
+          }
+          
+          select.addEventListener('change', e => {
+            localStorage.setItem('website-lang', e.target.value);
+            window.location.reload();
+          });
+
           resolve();
         }).catch(err => {
           if (DEBUG === true) { console.log(`Err. Can't parse language keys, the JSON file may be is invalid`); }
@@ -247,7 +265,9 @@ class BW {
       audio = new Audio(`assets/audio/${release.audio}`);
       handlePlayback(audio);
       // Update pager selected item
-      document.getElementById('release-pager').children[activeRelease].classList.add('selected');
+      if (this._band.releases.length < 35) {
+        document.getElementById('release-pager').children[activeRelease].classList.add('selected');
+      }
     };
     // Handle the audio playback and events
     const handlePlayback = () => {
@@ -295,37 +315,38 @@ class BW {
     } else {
       document.getElementById('release-previous').addEventListener('click', e => {
         e.target.blur();
-        document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
+        if (this._band.releases.length < 35) {
+          document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
+        }
         activeRelease = (this._band.releases.length + activeRelease - 1) % this._band.releases.length;
         updateRelease();
       });
       document.getElementById('release-next').addEventListener('click', e => {
         e.target.blur();
-        document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
+        if (this._band.releases.length < 35) {
+          document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
+        }
         activeRelease = (activeRelease + 1) % this._band.releases.length;
         updateRelease();
       });
 
-      for (let i = 0; i < this._band.releases.length; ++i) {
-        const releasePage = document.createElement('A');
-        releasePage.innerHTML = '●';
-        releasePage.addEventListener('click', e => {
-          document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
-          const parent = e.target.parentNode;
-          activeRelease = Array.prototype.indexOf.call(parent.children, e.target);
-          updateRelease();
-        });
-        document.getElementById('release-pager').appendChild(releasePage);
+      if (this._band.releases.length && this._band.releases.length < 35) {
+        for (let i = 0; i < this._band.releases.length; ++i) {
+          const releasePage = document.createElement('A');
+          releasePage.innerHTML = '●';
+          releasePage.addEventListener('click', e => {
+            document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
+            const parent = e.target.parentNode;
+            activeRelease = Array.prototype.indexOf.call(parent.children, e.target);
+            updateRelease();
+          });
+          releasePage.style.margin = `0 ${(3.5 / this._band.releases.length)}rem`;
+          document.getElementById('release-pager').appendChild(releasePage);
+        }
+
+        document.getElementById('release-pager').style.fontSize = `${(20 / this._band.releases.length) % 5.5}rem`;
       }
     }
-    // Blur modal event
-    document.getElementById('modal-overlay').addEventListener('click', () => {
-      overlay.style.opacity = 0;
-      setTimeout(() => {
-        overlay.innerHTML = '';
-        overlay.style.display = 'none';
-      }, 400);
-    });
     // Open modal event
     document.getElementById('see-more-links').addEventListener('click', () => {
       fetch('assets/html/seemoremodal.html').then(data => {
@@ -341,6 +362,7 @@ class BW {
               document.getElementById(release.moreLinks[i].type).href = release.moreLinks[i].url; // Update url href link
             }
           }
+          overlay.querySelector('#close-modal-button').innerHTML = this._nls.close;
           requestAnimationFrame(() => overlay.style.opacity = 1);
         });
       }).catch(e => console.error(e));

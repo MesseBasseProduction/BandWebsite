@@ -128,9 +128,6 @@
           "type": "tidal",
           "url": "https://listen.tidal.com/album/200014684"            
         }, {
-          "type": "pandora",
-          "url": ""            
-        }, {
           "type": "genius",
           "url": "https://genius.com/albums/Nac-fra/Dystopie"            
         }, {
@@ -222,9 +219,6 @@
           "type": "tidal",
           "url": "https://listen.tidal.com/album/200014704"            
         }, {
-          "type": "pandora",
-          "url": ""            
-        }, {
           "type": "genius",
           "url": "https://genius.com/albums/Nac-fra/Crad-bar-boogie-single"            
         }, {
@@ -280,9 +274,6 @@
           "type": "tidal",
           "url": "https://listen.tidal.com/album/199407447"            
         }, {
-          "type": "pandora",
-          "url": ""            
-        }, {
           "type": "genius",
           "url": "https://genius.com/albums/Nac-fra/Tramp-single"            
         }, {
@@ -336,9 +327,6 @@
       "moreLinks": [
         {
           "type": "tidal",
-          "url": ""            
-        }, {
-          "type": "pandora",
           "url": ""            
         }, {
           "type": "genius",
@@ -396,9 +384,6 @@
           "type": "tidal",
           "url": ""            
         }, {
-          "type": "pandora",
-          "url": ""            
-        }, {
           "type": "genius",
           "url": "https://genius.com/artists/Nac-fra/"            
         }, {
@@ -452,9 +437,6 @@
       "moreLinks": [
         {
           "type": "tidal",
-          "url": ""            
-        }, {
-          "type": "pandora",
           "url": ""            
         }, {
           "type": "genius",

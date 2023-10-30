@@ -28,5 +28,11 @@
   "to": "à",
   "since": "depuis",
   "close": "Fermer",
-  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"]
+  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"],
+  "lang": {
+    "en": "🇬🇧 Anglais",
+    "fr": "🇫🇷 Français",
+    "es": "🇪🇸 Espagnol",
+    "de": "🇩🇪 Allemand"
+  }
 }

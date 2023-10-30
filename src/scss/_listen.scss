@@ -187,6 +187,7 @@ section.track-links {
 
   .release-pager {
     display: flex;
+    font-size: 2.8rem;
     justify-content: center;
     margin-bottom: auto;
     user-select: none;
@@ -195,7 +196,7 @@ section.track-links {
       text-decoration: none;
       color: grey;
       cursor: pointer;
-      font-size: 2.8rem;
+      font-size: inherit;
       margin: 0 .5rem;
       user-select: none;
       transition: color .2s;
@@ -333,6 +334,8 @@ section.credits {
 }
 
 .modal-seemore {
+  text-align: center;
+
   a {
     align-items: center;
     background-color: white;
@@ -368,5 +371,9 @@ section.credits {
       font-size: 1.3rem;
       padding-right: .5rem;
     }
+  }
+
+  button {
+    margin-top: 1.3rem;
   }
 }

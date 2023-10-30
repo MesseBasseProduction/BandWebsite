@@ -1,6 +1,6 @@
 # BandWebsite
 
-![](https://badgen.net/badge/version/1.0.0/blue)
+![](https://badgen.net/badge/version/1.1.0/blue)
 [![License](https://img.shields.io/github/license/MesseBasseProduction/BandWebsite.svg)](https://github.com/MesseBasseProduction/BandWebsite/blob/main/LICENSE)
 
 A band's website template with a description, a page to listen tracks and finally, a link tree to share all of the band's links! Translated in FR, EN, ES, DE.
