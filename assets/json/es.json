@@ -3,16 +3,30 @@
     "name": "Nombre de la banda",
     "desc": "Descripción de la banda"
   },
+  "roles": {
+    "leadvocals": "Voces Principales",
+    "backvocals": "Coro",
+    "guitar": "GitarreGuitarra",
+    "keyboard": "Teclado",
+    "bass": "Bajo",
+    "doublebass": "Contrabajo",
+    "drums": "Batería"
+  },
   "listenLink": "Ver la discografia",
   "treeLink": "Encuéntrenos en línea",
   "musicians": "Los Músicos",
   "works": "Las Obras",
-  "learnMore": "Más información",
-  "from": "de",
+  "videos": "Vídeos",
+  "pastMembers": "Miembros anteriores",
   "listenOnline": "Escuche en línea",
   "seeMore": "ver más",
   "publishedOn": "Publicado en",
-  "composer": "Compositor",
   "author": "Autor",
+  "composer": "Compositor",
+  "learnMore": "Más información",
+  "from": "de",
+  "to": "a",
+  "since": "desde",
+  "close": "Cerca",
   "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 }

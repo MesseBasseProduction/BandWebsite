@@ -3,16 +3,30 @@
     "name": "Name der Musikgruppe",
     "desc": "Beschreibung du groupe"
   },
+  "roles": {
+    "leadvocals": "Hauptgesang",
+    "backvocals": "Chöre",
+    "guitar": "Gitarre",
+    "keyboard": "Tastatur",
+    "bass": "Niedrig",
+    "doublebass": "Bass",
+    "drums": "Batterie"
+  },
   "listenLink": "Siehe die Diskographie",
   "treeLink": "Finden Sie uns im Internet",
   "musicians": "Die Musiker",
   "works": "Stücke",
-  "learnMore": "Mehr erfahren",
-  "from": "von",
+  "videos": "Videos",
+  "pastMembers": "Frühere Mitglieder",
   "listenOnline": "Online anhören",
   "seeMore": "mehr sehen",
   "publishedOn": "Veröffentlicht am",
-  "composer": "Komponist",
   "author": "Autor",
+  "composer": "Komponist",
+  "learnMore": "Mehr erfahren",
+  "from": "von",
+  "to": "bis",
+  "since": "seit",
+  "close": "Schließen",
   "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
 }

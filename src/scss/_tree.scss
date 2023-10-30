@@ -1,7 +1,6 @@
 .content {
-  background-color: rgba(255, 255, 255, .1);
+  background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
   border-radius: .5rem;
-  height: 100rem;
   max-height: 90%;
   max-width: 100rem;
   padding: 6rem 0;

@@ -58,17 +58,16 @@ main {
   left: 2rem;
   top: 2rem;
   width: 2rem;
-  z-index: 3;
-  filter: invert(1);
+  z-index: 150;
+  filter: invert(1) drop-shadow(0 0 .25rem rgba(0, 0, 0, .7));
   transition: filter .2s;
 
   &:active,
   &:focus,
   &:hover {
-    filter: invert(1) drop-shadow(0 0 0.25rem rgba(0, 0, 0, .7));
+    filter: invert(1) drop-shadow(0 0 .75rem var(--mainColor));
   }
 }
-
 
 .modal-overlay {
   align-items: center;
@@ -81,6 +80,7 @@ main {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 200;
   transition: all .4s;
 
   .modal {
@@ -88,6 +88,25 @@ main {
     border-radius: .5rem;
     box-shadow: 0 0 .5rem rgba(255, 255, 255, .3);
     padding: 3rem;
+    position: relative;
+
+    p.close-modal {
+      cursor: pointer;
+      color: white;
+      font-size: 4rem;
+      margin: 0;
+      position: absolute;
+      right: 1rem;
+      top: 0;
+      user-select: none;
+      transition: color .2s;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: var(--mainColor);
+      }
+    }
   }
 }
 

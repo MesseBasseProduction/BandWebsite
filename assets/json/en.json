@@ -1,18 +1,32 @@
 {
   "band": {
-    "name": "Band Name",
-    "desc": "This is your band's name description"
+    "name": "NAC",
+    "desc": "NAC is a Hard Rock/Progressive Rock band, founded in 1994 in Igny, France. Crafted around Pierrot and Elliot, the band's formation has often evolved to gradually consolidate from 2015. Its eclectic members put their interpretation at the service of their music; straightforward and raw."
+  },
+  "roles": {
+    "leadvocals": "Lead Singer",
+    "backvocals": "Back Vocals",
+    "guitar": "Guitar",
+    "keyboard": "Keyboard",
+    "bass": "Bass",
+    "doublebass": "Double Bass",
+    "drums": "Drums"
   },
   "listenLink": "Check the discography",
   "treeLink": "Find us online",
   "musicians": "Musicians",
   "works": "Pieces",
+  "videos": "Videos",
   "learnMore": "Click to read more",
-  "from": "from",
+  "pastMembers": "Past members",
   "listenOnline": "Listen online",
-  "seeMore": "see more",
   "publishedOn": "Released on",
+  "author": "Author",
   "composer": "Composer",
-  "author": "Author", 
+  "seeMore": "see more",
+  "from": "from",
+  "to": "to",
+  "since": "since",
+  "close": "Close",
   "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 }

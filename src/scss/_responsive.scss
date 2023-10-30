@@ -126,6 +126,10 @@
   main.bio section {
     max-width: 85%;
   }
+
+  main.bio nav .band-picture {
+    height: auto;
+  }
 }
 
 @media (max-width: 512px) {
@@ -166,6 +170,16 @@
 
     section {
       grid-template-columns: 100%;
+    }
+
+    figure {
+      max-width: 85%;      
+    }
+  }
+
+  .modal.past-members-modal {
+    .past-member {
+      grid-template-columns: 1fr;
     }
   }
 }
