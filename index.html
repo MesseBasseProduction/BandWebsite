@@ -43,29 +43,33 @@
   <meta name="twitter:image:src" content="./assets/img/logo-social.png"/>
 </head>
 <body data-type="index">
-<main class="bio">
-  <nav>
-    <img src="#" id="band-picture" class="band-picture" alt="band-picture">
-    <h1 id="band-name"></h1>
-    <h2 id="band-desc"></h2>
-    <div class="links">
-      <a href="./listen.html" id="listen-link" alt="listen-band"></a>
-      <a href="./tree.html" id="tree-link" alt="find-band-online"></a>
-    </div>
-  </nav>
-  <h3 id="musicians-section"></h3>
-  <section id="artists"></section>
-  <h3 id="works-section"></h3>
-  <section id="releases"></section>
-  <h3 id="videos-section"></h3>
-  <figure>
-    <iframe title="NAC – Dystopie Live (Concert Complet)" width="560" height="315" src="https://tube.mycozy.space/videos/embed/5a713c21-3093-457f-be5a-1951ea6c4ab0" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
-  </figure>
-  <footer>
-    <a href="https://messe-basse-production.com" target="_blank" rel="noreferrer noopener">Messe Basse Production</a>
-    <p>2021 – 2023</p>
-  </footer>
-</main>
+<div id="content-wrapper" class="content-wrapper">
+  <main class="bio">
+    <nav>
+      <div class="nav-content">
+        <img src="#" id="band-picture" class="band-picture" alt="band-picture">
+        <h1 id="band-name"></h1>
+        <h2 id="band-desc"></h2>
+        <div class="links">
+          <a href="./listen.html" id="listen-link" alt="listen-band"></a>
+          <a href="./tree.html" id="tree-link" alt="find-band-online"></a>
+        </div>
+      </div>
+    </nav>
+    <h3 id="works-section"></h3>
+    <section id="releases"></section>
+    <h3 id="musicians-section"></h3>
+    <section id="artists"></section>
+    <h3 id="medias-section"></h3>
+    <figure id="medias"></figure>
+    <footer>
+      <div class="footer-content">
+        <a href="https://messe-basse-production.com" target="_blank" rel="noreferrer noopener">Messe Basse Production</a>
+        <p>2021 – <span id="current-year">2024</span></p>
+      </div>
+    </footer>
+  </main>    
+</div>
 <select id="lang-select">
   <option value="en"></option>
   <option value="fr"></option>
@@ -73,6 +77,7 @@
   <option value="de"></option>
 </select>
 <div id="modal-overlay" class="modal-overlay"></div>
+<div id="loading-overlay" class="loading-overlay"></div>
 <script type="text/javascript" src="https://arthurbeaulieu.github.io/ScrollBar.js/dist/ScrollBar.bundle.js"></script>
 <script type="text/javascript" src="./assets/dist/BW.bundle.js"></script>
 <script type="text/javascript">window.BW = new BW();</script>

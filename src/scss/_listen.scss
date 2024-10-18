@@ -8,9 +8,11 @@ section.track-playback {
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(.5rem);
+    left: -7.5%;
     height: 115%; /* So it overlaps under link section */
-    position: relative;
-    width: 100%;
+    position: absolute;
+    top: -7.5%;
+    width: 115%;
     z-index: 50;
   }
 
@@ -32,7 +34,8 @@ section.track-playback {
       display: flex;
       font-size: 4.6rem;
       position: absolute;
-      height: 100%;
+      height: 115%;
+      top: -7.5%;
       user-select: none;
       width: 7rem;
     }
@@ -46,7 +49,7 @@ section.track-playback {
       &:active,
       &:focus,
       &:hover {
-        box-shadow: inset 5.5rem 0 2rem rgba(0, 0, 0, .7);
+        box-shadow: inset 5.5rem 0 2rem var(--color-bg-a5);
       }
     }
 
@@ -59,20 +62,21 @@ section.track-playback {
       &:active,
       &:focus,
       &:hover {
-        box-shadow: inset -5.5rem 0 2rem rgba(0, 0, 0, .7);
+        box-shadow: inset -5.5rem 0 2rem var(--color-bg-a5);
       }
     }
 
     .featured-track-container {
-      background-color: rgba(255, 255, 255, .5);
+      background-color: var(--color-bg-a5);
       border-radius: .5rem;
+      color: var(--color-txt);
       height: 80%;
       padding: 1.5rem 1.5rem 0;
       position: relative;
 
       img {
         height: calc(100% - 5rem);
-        transition: transform .2s;
+        transition: transform var(--transition);
       }
 
       .player {
@@ -94,8 +98,19 @@ section.track-playback {
           }
         }
 
+        @media (prefers-color-scheme: light) {
+          img {
+            filter: brightness(0) saturate(100%) invert(0%) sepia(5%) saturate(3753%) hue-rotate(22deg) brightness(94%) contrast(88%);
+          }
+        }
+        @media (prefers-color-scheme: dark) {
+          img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(43%) saturate(22%) hue-rotate(272deg) brightness(111%) contrast(92%);
+          }
+        }
+
         .progress-bar {
-          background: #999;
+          background: var(--color-txt);
           border-radius: 1rem;
           cursor: pointer;
           height: .5rem;
@@ -107,21 +122,20 @@ section.track-playback {
           &:focus,
           &:hover {
             .current-progress {
-              background: var(--mainColor);
+              background: var(--color-main);
             }
           }
 
           .current-progress {
-            background: #333;
+            background: var(--color-bg-alt);
             border-radius: 1rem;
             height: 100%;
             width: 0;
-            transition: all .2s ease-out;
+            transition: all var(--transition) ease-out;
           }
         }
 
         p {
-          color: black;
           font-size: 1.6rem;
         }
       }
@@ -142,30 +156,30 @@ section.track-playback {
       }
 
       .release-tracklist {
-        background: linear-gradient(to right, rgba(0, 0, 0, .6) 85%, transparent);
-        display: flex;
-        flex-direction: column;
+        background: var(--color-bg-a5);
+        border-end-end-radius: .5rem;
+        border-start-end-radius: .5rem;
         height: 100%;
-        justify-content: center;
         left: 100%;
         opacity: 0;
-        padding-left: 1.5rem;
         position: absolute;
         top: 0;
         width: 100%;
-        transition: opacity .2s;
+
+        transition: opacity var(--transition);
 
         h3 {
           font-size: 1.1rem;
 
           &:first-child {
-            margin-top: .6rem;
+            margin-top: 1.5rem;
           }
         }
 
         p {
           font-size: 1.1rem;
-          margin-bottom: .6rem;
+          margin-bottom: 1.5rem;
+          padding-left: var(--spacing);
         }
       }
     }
@@ -173,17 +187,26 @@ section.track-playback {
 }
 
 section.track-links {
-  align-items: center;
   background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  color: var(--color-txt);
   height: 45%;
-  padding: 1rem 0 3rem 0;
   position: relative;
-  text-align: center;
   z-index: 100;
+
+  .track-link-bg-overlay {
+    align-items: center;
+    background-color: var(--color-bg-a1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    padding-bottom: var(--spacing);
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+  }
 
   .release-pager {
     display: flex;
@@ -194,21 +217,17 @@ section.track-links {
 
     a {
       text-decoration: none;
-      color: grey;
+      color: var(--color-txt-a5);
       cursor: pointer;
       font-size: inherit;
       margin: 0 .5rem;
       user-select: none;
-      transition: color .2s;
+      transition: color var(--transition);
 
       &.selected {
-        color: white;
+        color: var(--color-txt);
       }
     }
-  }
-
-  &.disabled {
-    cursor: no-drop;
   }
 
   h1 {
@@ -218,24 +237,24 @@ section.track-links {
   h2 {
     font-size: 2.2rem;
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-small);
   }
 
   p {
     font-size: 1.6rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-small);
 
     span {
       cursor: pointer;
       font-size: 1.1rem;
       font-style: italic;
       padding-left: .5rem;
-      transition: color .2s;
+      transition: color var(--transition);
 
       &:active,
       &:focus,
       &:hover {
-        color: var(--mainColor);
+        color: var(--color-main);
       }
     }
   }
@@ -248,17 +267,25 @@ section.track-links {
 
     a {
       align-items: center;
-      background: white;
-      border: solid 1px black;
+      background: var(--color-bg);
+      border: solid 1px var(--color-txt);
       border-radius: 2rem;
-      color: black;
+      color: var(--color-txt);
       display: flex;
       justify-content: space-evenly;
       margin: .7rem;
       padding: .6rem 2rem;
       text-decoration: none;
       text-align: center;
-      transition: all .2s;
+      user-select: none;
+
+      transition: all var(--transition);
+
+      @media (prefers-color-scheme: dark) {
+        img {
+          filter: invert(1);
+        }
+      }
 
       &:active,
       &:focus,
@@ -268,20 +295,19 @@ section.track-links {
 
       img {
         height: 2rem;
-        margin-right: 1rem;
+        margin-right: var(--spacing-small);
       }
 
       p {
         font-size: 1.4rem;
         margin: 0;
       }
-    }
-  }
 
-  .disabled {
-    filter: grayscale(100%) brightness(40%) contrast(0.8);
-    pointer-events: none;
-    user-select: none;
+      &.disabled {
+        filter: grayscale(100%) brightness(40%) contrast(0.8);
+        pointer-events: none;
+      }
+    }
   }
 }
 
@@ -295,16 +321,18 @@ section.credits {
     background-size: cover;
     bottom: 0;
     filter: blur(.5rem);
+    left: -7.5%;
     height: 115%;
     position: absolute;
-    width: 100%;
+    top: -7.5%;
+    width: 115%;
     z-index: 50;
   }
 
   .credit-container {
     align-items: center;
-    background: rgba(0, 0, 0, .2);
-    color: white;
+    background: var(--color-bg-a1);
+    color: var(--color-txt);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -319,15 +347,19 @@ section.credits {
       font-size: 1.3rem;
     }
 
+    span {
+      text-transform: capitalize;
+    }
+
     a {
-      color: white;
+      color: var(--color-txt);
       text-decoration: none;
-      transition: color .2s;
+      transition: color var(--transition);
 
       &:active,
       &:focus,
       &:hover {
-        color: var(--mainColor);
+        color: var(--color-main);
       }
     }
   }
@@ -349,7 +381,7 @@ section.credits {
     padding: .6rem 1rem;
     text-decoration: none;
     width: 100%;
-    transition: all .2s;
+    transition: all var(--transition);
 
     &:active,
     &:focus,

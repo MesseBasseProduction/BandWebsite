@@ -1,13 +1,6 @@
 @media (max-width: 1000px) {
-  nav.site-nav {
-    a {
-      font-size: 1.4rem;
-      padding: 0 .5rem;
-    }
-
-    .socials {
-      display: none;
-    }
+  select {
+    top: var(--spacing-small);
   }
 
   main.creation {
@@ -123,63 +116,123 @@
     }
   }
 
-  main.bio section {
-    max-width: 85%;
-  }
+  main.bio nav {
+    .nav-content {
+      padding: var(--spacing-large) var(--spacing-large);
+      padding-right: calc(var(--spacing-large) + var(--default-scroll-size));
 
-  main.bio nav .band-picture {
-    height: auto;
-  }
-}
-
-@media (max-width: 512px) {
-  main.creation {
-    .music {
-      .band {
-        .band-image {
-          position: inherit;
-          width: 90%;
-        }
-
-        .band-releases {
-          .band-header {
-            span {
-              display: none;
-            }
-          }
-        }
+      .band-picture {
+        height: auto;
+        width: 100%;
       }
     }
   }
 
+  main.bio section,
+  main.bio figure {
+    padding: 0 var(--spacing-large);
+    padding-right: calc(var(--spacing-large) + var(--default-scroll-size));
+  }
+
+  .modal.modal-artist,
+  .modal.past-members-modal {
+    max-width: inherit;
+    width: calc(100% - var(--spacing));
+  }
+}
+
+@media (max-width: 512px) {
+  .home {
+    left: var(--spacing-small);
+    top: var(--spacing-small);
+  }
+
   main.bio {
-    nav .links {
-      align-items: center;
-      flex-direction: column;
-  
-      a {
-        margin: 1rem 0;
-        justify-content: center;
-        width: 85%;
-        
-        img {
-          margin-left: 0;
+    nav {
+      .nav-content {
+        padding: var(--spacing-large) var(--spacing);
+        padding-right: calc(var(--spacing) + var(--default-scroll-size));
+
+        h1 {
+          font-size: 4.4rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        .links {
+          align-items: center;
+          flex-direction: column;
+      
+          a {
+            margin: 1rem 0;
+            justify-content: center;
+            width: 85%;
+            
+            img {
+              margin-left: 0;
+            }
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
         }
       }
     }
 
     section {
       grid-template-columns: 100%;
+      padding: 0 var(--spacing);
+      padding-right: calc(var(--spacing) + var(--default-scroll-size));
+
+      div.past-members {
+        aspect-ratio: inherit;
+        margin-top: var(--spacing);
+      }
     }
 
     figure {
-      max-width: 85%;      
+      grid-template-columns: 100%;
+      padding: 0 var(--spacing);
+      padding-right: calc(var(--spacing) + var(--default-scroll-size));
+
+      iframe {
+        grid-column: 1;
+      }
     }
+  }
+
+  .modal.modal-artist,
+  .modal.past-members-modal {
+    max-height: calc(100% - var(--spacing));
   }
 
   .modal.past-members-modal {
     .past-member {
       grid-template-columns: 1fr;
+    }
+  }
+
+  section.track-playback {
+    .featured-track-wrapper {
+      .previous-release,
+      .next-release {
+        display: none;
+      }
+    }
+  }
+
+  main.tree {
+    .content {
+      padding: var(--spacing);
+
+      .link-wrapper {
+        .link-container {
+          grid-template-columns: 1fr;
+        }
+      }
     }
   }
 }

@@ -1,8 +1,4 @@
 {
-  "band": {
-    "name": "Nombre de la banda",
-    "desc": "Descripción de la banda"
-  },
   "roles": {
     "leadvocals": "Voces Principales",
     "backvocals": "Coro",
@@ -16,7 +12,7 @@
   "treeLink": "Encuéntrenos en línea",
   "musicians": "Los Músicos",
   "works": "Las Obras",
-  "videos": "Vídeos",
+  "medias": "Medios",
   "pastMembers": "Miembros anteriores",
   "listenOnline": "Escuche en línea",
   "seeMore": "ver más",
@@ -28,7 +24,6 @@
   "to": "a",
   "since": "desde",
   "close": "Cerca",
-  "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
   "lang": {
     "en": "🇬🇧 Inglés",
     "fr": "🇫🇷 Francés",

@@ -17,7 +17,7 @@ class BW {
     this._nls = null;
     this._band = null;
     this._mainScroll = null;
-    this._version = '1.1.0';
+    this._version = '1.1.1';
 
     if (DEBUG === true) { console.log(`BandWebsite v${this._version} : Begin website initialization`); }
 
@@ -94,7 +94,7 @@ class BW {
     return new Promise((resolve, reject) => {
       // Only update cs variables if precised in band.json, keep default otherwise
       if (this._band.styles) {
-        document.documentElement.style.setProperty('--mainColor', this._band.styles.mainColor);
+        document.documentElement.style.setProperty('--color-main', this._band.styles.mainColor);
         document.documentElement.style.setProperty('--gradientStart', this._band.styles.gradientStart);
         document.documentElement.style.setProperty('--gradientEnd', this._band.styles.gradientEnd);
         // Create filter css rule from main color color
@@ -131,56 +131,32 @@ class BW {
 
   _buildIndexPage() {
     if (DEBUG === true) { console.log(`6. Init website with the artist main page`); }
-    document.querySelector('#band-name').innerHTML = this._nls.band.name;
+    document.querySelector('#band-name').innerHTML = this._band.name;
     document.querySelector('#band-picture').src = `./assets/img/artists/${this._band.bandPicture}`;
-    document.querySelector('#band-desc').innerHTML = this._nls.band.desc;
+    document.querySelector('#band-desc').innerHTML = this._band.bio[this._lang];
     document.querySelector('#listen-link').innerHTML = `<img src="./assets/img/controls/disc.svg" alt="listen">${this._nls.listenLink}`;
     document.querySelector('#tree-link').innerHTML = `<img src="./assets/img/controls/find.svg" alt="listen">${this._nls.treeLink}`;
     document.querySelector('#musicians-section').innerHTML = this._nls.musicians;
     document.querySelector('#works-section').innerHTML = this._nls.works;
-    document.querySelector('#videos-section').innerHTML = this._nls.videos;
-
-    for (let i = 0; i < this._band.members.length; ++i) {
-      const container = document.createElement('DIV');
-      container.dataset.artist = this._band.members[i].fullName;
-      const picture = document.createElement('IMG');
-      picture.src = `./assets/img/artists/${this._band.members[i].picture}`;
-      const label = document.createElement('P');
-      label.innerHTML = `
-        ${this._band.members[i].fullName}<br>
-        <span>© ${this._band.members[i].pictureCredit}</span><br>
-        <span class="learn-more">${this._nls.learnMore}</span>
-      `;
-      container.addEventListener('click', this._artistModal.bind(this, this._band.members[i]));
-      container.appendChild(picture);
-      container.appendChild(label);
-      document.getElementById('artists').appendChild(container);
-    }
-
-    if (this._band.pastMembers.length > 0) {
-      const container = document.createElement('DIV');
-      container.classList.add('past-members');
-      const label = document.createElement('P');
-      label.innerHTML = `
-        ${this._nls.pastMembers}<br>
-        <span id="learn-more" class="learn-more">${this._nls.learnMore}</span>
-      `;
-      container.addEventListener('click', this._pastMembersModal.bind(this, this._band.pastMembers));
-      container.appendChild(label);
-      document.getElementById('artists').appendChild(container);
-    }
-
+    document.querySelector('#medias-section').innerHTML = this._nls.medias;
+    document.querySelector('#current-year').innerHTML = new Date().getFullYear();
+    // Iterate band release to build albums
     for (let i = 0; i < this._band.releases.length; ++i) {
       if (this._band.releases[i].showOnMainPage === true) {
         const container = document.createElement('DIV');
         container.dataset.url = this._getReleaseLink(this._band.releases[i].links);
         const picture = document.createElement('IMG');
         picture.src = `./assets/img/releases/${this._band.releases[i].cover}`;
+        const date = new Intl.DateTimeFormat(this._lang, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }).format(new Date(this._band.releases[i].date));
         const label = document.createElement('P');
         label.innerHTML = `
-          ${this._band.releases[i].title}<br>
-          <span>${this._band.releases[i].artist}</span><br>
-          <span>${this._buildReleaseDate(this._band.releases[i].date)}</span>
+          ${this._band.releases[i].title}
+          <span>${this._band.releases[i].artist}</span>
+          <span>${date}</span>
         `;
         container.addEventListener('click', this._openReleaseVideo.bind(this, container.dataset.url));
         container.appendChild(picture);
@@ -188,19 +164,70 @@ class BW {
         document.getElementById('releases').appendChild(container);
       }
     }
-    // Force timeout to wait for draw, then raf to display scroll
+    // Iterate through band members
+    for (let i = 0; i < this._band.members.length; ++i) {
+      const container = document.createElement('DIV');
+      container.dataset.artist = this._band.members[i].fullName;
+      const picture = document.createElement('IMG');
+      picture.src = `./assets/img/artists/${this._band.members[i].picture}`;
+      const label = document.createElement('P');
+      label.innerHTML = `
+        ${this._band.members[i].fullName}
+        <span>© ${this._band.members[i].pictureCredit}</span>
+        <span class="learn-more">${this._nls.learnMore}</span>
+      `;
+      container.addEventListener('click', this._artistModal.bind(this, this._band.members[i]));
+      container.appendChild(picture);
+      container.appendChild(label);
+      document.getElementById('artists').appendChild(container);
+    }
+    // Iterate through past band members if any
+    if (this._band.pastMembers.length > 0) {
+      const container = document.createElement('DIV');
+      container.classList.add('past-members');
+      const label = document.createElement('P');
+      label.innerHTML = `
+        ${this._nls.pastMembers}
+        <span id="learn-more" class="learn-more">${this._nls.learnMore}</span>
+      `;
+      container.addEventListener('click', this._pastMembersModal.bind(this, this._band.pastMembers));
+      container.appendChild(label);
+      document.getElementById('artists').appendChild(container);
+    }
+    // Iterate through band's medias
+    for (let i = 0; i < this._band.medias.length; ++i) {
+      let container = null;
+      if (this._band.medias[i].type === 'iframe') {
+        container = document.createElement('IFRAME');
+        container.title = this._band.medias[i].title;
+        container.src = this._band.medias[i].link;
+        container.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
+        container.setAttribute('frameborder', '0');
+        container.setAttribute('allowfullscreen', '1');
+      } else if (this._band.medias[i].type === 'image') {
+        container = document.createElement('IMG');
+        container.src = this._band.medias[i].link;
+      }
+      document.getElementById('medias').appendChild(container);
+    }
+    // Now build page scroll
+    this._mainScroll = new window.ScrollBar({
+      target: document.getElementById('content-wrapper'),
+      minSize: 200,
+      style: {
+        color: this._band.styles.mainColor
+      }
+    });
+    // Hide loading overlay
+    document.getElementById('loading-overlay').style.opacity = '0';
+    // Force render after scroll creation to make scrollbar properly resized to content
     setTimeout(() => {
-      this._mainScroll = new window.ScrollBar({
-        target: document.body,
-        style: {
-          color: this._band.styles.mainColor
-        }
-      });
-      // Force raf after scroll creation to make scrollbar properly visible
-      requestAnimationFrame(() => {
-        this._mainScroll.updateScrollbar();
-      });
-    }, 100);
+      this._mainScroll.updateScrollbar();
+    }, 200);
+    // Display none on loading overlay when animation fade out is finished
+    setTimeout(() => {
+      document.getElementById('loading-overlay').style.display = 'none';
+    }, 1200);
   }
 
 
@@ -224,6 +251,11 @@ class BW {
       progress.style.width = '0';
       // Update active release
       const release = this._band.releases[activeRelease];
+      const date = new Intl.DateTimeFormat(this._lang, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }).format(new Date(release.date));
       // Update blurred backgrounds
       document.getElementById('release-background').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
       document.getElementById('release-background-bottom').style.backgroundImage = `url('assets/img/releases/${release.cover}')`;
@@ -232,7 +264,7 @@ class BW {
       document.getElementById('release-duration').innerHTML = release.duration;
       document.getElementById('release-title').innerHTML = release.title;
       document.getElementById('release-artist').innerHTML = release.artist;
-      document.getElementById('release-date').innerHTML = this._buildReleaseDate(release.date);
+      document.getElementById('release-date').innerHTML = date;
       document.getElementById('label-link').innerHTML = release.label;
       document.getElementById('label-link').href = release.labelLink;
       // Update view links according to the selected release
@@ -369,6 +401,12 @@ class BW {
     });
     // Update UI with first release available in array
     updateRelease();
+    // Hide loading overlay
+    document.getElementById('loading-overlay').style.opacity = '0';
+    // Display none on loading overlay when animation fade out is finished
+    setTimeout(() => {
+      document.getElementById('loading-overlay').style.display = 'none';
+    }, 1200);
   }
 
 
@@ -376,27 +414,29 @@ class BW {
     if (DEBUG === true) { console.log(`6. Init website with the artist link tree`); }
     // Iterate over link to create link content
     for (let i = 0; i < this._band.links.length; ++i) {
-      document.querySelector('#link-wrapper').innerHTML += `
+      document.querySelector('#link-container').innerHTML += `
       <a href="${this._band.links[i].url}" class="link" target="_blank" rel="noopener noreferrer">
         <img src="assets/img/logo/${this._band.links[i].type}.svg" width="25px">
         <p>${this._band.links[i].name}</p>
       </a>
       `;
     }
-    // Force timeout to wait for draw, then raf to display scroll
+    this._mainScroll = new window.ScrollBar({
+      target: document.getElementById('link-wrapper'),
+      style: {
+        color: this._band.styles.mainColor
+      }
+    });
+    // Hide loading overlay
+    document.getElementById('loading-overlay').style.opacity = '0';
+    // Force render after scroll creation to make scrollbar properly resized to content
     setTimeout(() => {
-      this._mainScroll = new window.ScrollBar({
-        target: document.getElementById('link-wrapper'),
-        style: {
-          color: this._band.styles.mainColor
-        }
-      });
-      // Force raf after scroll creation to make scrollbar properly visible
-      requestAnimationFrame(() => {
-        this._mainScroll.updateScrollbar();
-      });
-    }, 100);
-
+      this._mainScroll.updateScrollbar();
+    }, 200);
+    // Display none on loading overlay when animation fade out is finished
+    setTimeout(() => {
+      document.getElementById('loading-overlay').style.display = 'none';
+    }, 1200);
   }
 
 
@@ -486,7 +526,7 @@ class BW {
 
 
   _closeModal(e) {
-    if (e.originalTarget.id !== 'modal-overlay' && e.originalTarget.className !== 'close-modal') {
+    if (e.target.id !== 'modal-overlay' && e.target.className !== 'close-modal') {
       return;
     }
 
@@ -523,16 +563,6 @@ class BW {
 
 
   // Utils for listen page
-
-
-  _buildReleaseDate(date) {
-    const dateArray = date.split('-');
-    if (this._lang === 'en') {
-      return `${this._nls.months[dateArray[1] - 1]} ${dateArray[0].replace(/^0+/, '')}, ${dateArray[2]}`;
-    } else {
-      return `${dateArray[0].replace(/^0+/, '')} ${this._nls.months[dateArray[1] - 1]} ${dateArray[2]}`;
-    }
-  }
 
 
   _buildTrackCredits(tracks) {
