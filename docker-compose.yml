@@ -1,0 +1,10 @@
+services:
+  messe-basse-production:
+    container_name: band_website_node
+    build: .
+    command: npm run start
+    restart: always
+    ports:
+      - 8001:8001
+    environment:
+      - NODE_ENV=prod
