@@ -14,7 +14,6 @@ For system administrator, here are the guidelines to fully customize this templa
 - fill `assets/audio/` with mp3 extracts of the releases you want to make available to listeners ;
 - fill `assets/img/releases/` with releases' artworks ;
 - fill `assets/img/artists/` with band members' picture ;
-- fill the `assets/json/{lang}.json` with the band information ;
 - fill the `assets/json/band.json` with artist members, links, releases, medias and styles\*\* ;
 
 \* *Favicon can be generated using a website such as [https://www.favicon-generator.org/](https://www.favicon-generator.org/).*
@@ -26,4 +25,4 @@ Once these steps are completed, you're good to put this website on production. N
 Supported links to be displayed :
 Facebook, Instagram, Twitter, YouTube, Spotify, Apple Music, Deezer, Amazon Music, Tidal, SoundCloud, Bandcamp, Discogs, Genius, MusicBrainz, Flickr, Github, LinkedIn
 
-**Messe Basse Production, GPL-v3.0 -- 2022/2024**
+**Messe Basse Production, GPL-v3.0 -- 2022/2025**
