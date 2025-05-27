@@ -297,7 +297,7 @@ class BW {
       audio = new Audio(`assets/audio/${release.audio}`);
       handlePlayback(audio);
       // Update pager selected item
-      if (this._band.releases.length < 35) {
+      if (this._band.releases.length < 35 && this._band.releases.length !== 1) {
         document.getElementById('release-pager').children[activeRelease].classList.add('selected');
       }
     };
@@ -347,7 +347,7 @@ class BW {
     } else {
       document.getElementById('release-previous').addEventListener('click', e => {
         e.target.blur();
-        if (this._band.releases.length < 35) {
+        if (this._band.releases.length < 35 && this._band.releases.length !== 1) {
           document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
         }
         activeRelease = (this._band.releases.length + activeRelease - 1) % this._band.releases.length;
@@ -355,14 +355,14 @@ class BW {
       });
       document.getElementById('release-next').addEventListener('click', e => {
         e.target.blur();
-        if (this._band.releases.length < 35) {
+        if (this._band.releases.length < 35 && this._band.releases.length !== 1) {
           document.getElementById('release-pager').children[activeRelease].classList.remove('selected');
         }
         activeRelease = (activeRelease + 1) % this._band.releases.length;
         updateRelease();
       });
 
-      if (this._band.releases.length && this._band.releases.length < 35) {
+      if (this._band.releases.length && this._band.releases.length < 35 && this._band.releases.length !== 1) {
         for (let i = 0; i < this._band.releases.length; ++i) {
           const releasePage = document.createElement('A');
           releasePage.innerHTML = '●';
