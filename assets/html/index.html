@@ -42,21 +42,43 @@
   <meta name="twitter:description" content="Your band's description"/>
   <meta name="twitter:image:src" content="./assets/img/logo-social.png"/>
 </head>
-<body data-type="tree">
-<main class="tree">
-  <div class="content">
-    <a href="./index.html" alt="back-home"><img src="./assets/img/logo.png" class="band-logo" alt="band-logo"></a>
-    <div id="link-wrapper" class="link-wrapper">
-      <div id="link-container" class="link-container"></div>
-    </div>
-  </div>
-</main>
-<a href="./index.html" class="home"><img src="./assets/img/controls/home.svg"></a>
+<body data-type="index">
+<div id="content-wrapper" class="content-wrapper">
+  <main class="homepage">
+    <nav>
+      <div class="nav-content">
+        <img src="#" id="band-picture" class="band-picture" alt="band-picture">
+        <h1 id="band-name"></h1>
+        <h2 id="band-desc"></h2>
+        <div class="links">
+          <a href="/listen" id="listen-link" alt="listen-band"></a>
+          <a href="/events" id="events-link" alt="band-events"></a>
+          <a href="/tree" id="tree-link" alt="find-band-online"></a>
+        </div>
+      </div>
+    </nav>
+    <h3 id="events-section"></h3>
+    <section id="events" class="events"></section>
+    <h3 id="works-section"></h3>
+    <section id="releases"></section>
+    <h3 id="musicians-section"></h3>
+    <section id="artists"></section>
+    <h3 id="medias-section"></h3>
+    <figure id="medias"></figure>
+    <footer>
+      <div class="footer-content">
+        <a href="https://messe-basse-production.com" target="_blank" rel="noreferrer noopener">Messe Basse Production</a>
+        <p>2021 – <span id="current-year">2025</span></p>
+      </div>
+    </footer>
+  </main>    
+</div>
 <select id="lang-select">
   <option value="en"></option>
   <option value="fr"></option>
   <option value="es"></option>
   <option value="de"></option>
+  <option value="it"></option>
 </select>
 <div id="modal-overlay" class="modal-overlay"></div>
 <div id="loading-overlay" class="loading-overlay"></div>

@@ -8,10 +8,13 @@
     "doublebass": "Contrebasse",
     "drums": "Batterie"
   },
+  "eventsLink": "Nous voir en concert",
   "listenLink": "Voir la discographie",
   "treeLink": "Retrouvez-nous en ligne",
-  "musicians": "Les Musiciens",
+  "events": "Évènements à venir",
+  "pastEvents": "Évènements passés",
   "works": "Les Œuvres",
+  "musicians": "Les Musiciens",
   "medias": "Médias",
   "learnMore": "Cliquez pour en savoir plus",
   "pastMembers": "Anciens membres",
@@ -28,6 +31,7 @@
     "en": "🇬🇧 Anglais",
     "fr": "🇫🇷 Français",
     "es": "🇪🇸 Espagnol",
-    "de": "🇩🇪 Allemand"
+    "de": "🇩🇪 Allemand",
+    "it": "🇮🇹 Italien"
   }
 }

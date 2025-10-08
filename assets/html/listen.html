@@ -42,39 +42,72 @@
   <meta name="twitter:description" content="Your band's description"/>
   <meta name="twitter:image:src" content="./assets/img/logo-social.png"/>
 </head>
-<body data-type="index">
-<div id="content-wrapper" class="content-wrapper">
-  <main class="bio">
-    <nav>
-      <div class="nav-content">
-        <img src="#" id="band-picture" class="band-picture" alt="band-picture">
-        <h1 id="band-name"></h1>
-        <h2 id="band-desc"></h2>
-        <div class="links">
-          <a href="./listen.html" id="listen-link" alt="listen-band"></a>
-          <a href="./tree.html" id="tree-link" alt="find-band-online"></a>
+<body data-type="listen">
+<section class="track-playback">
+  <div id="release-background" class="blurred-background dystopie"></div>
+  <div class="featured-track-wrapper">
+    <div id="release-previous" class="previous-release">‹</div>
+    <div class="featured-track-container">
+      <img src="#" id="release-cover" alt="release-cover">
+      <div class="player">
+        <img src="./assets/img/controls/play.svg" id="play-pause" alt="play-icon">
+        <div class="progress-bar" id="progress-bar">
+          <div class="current-progress" id="current-progress"></div>
         </div>
+        <p id="release-duration">46:30</p>
       </div>
-    </nav>
-    <h3 id="works-section"></h3>
-    <section id="releases"></section>
-    <h3 id="musicians-section"></h3>
-    <section id="artists"></section>
-    <h3 id="medias-section"></h3>
-    <figure id="medias"></figure>
-    <footer>
-      <div class="footer-content">
-        <a href="https://messe-basse-production.com" target="_blank" rel="noreferrer noopener">Messe Basse Production</a>
-        <p>2021 – <span id="current-year">2024</span></p>
-      </div>
-    </footer>
-  </main>    
-</div>
+      <div id="release-tracklist" class="release-tracklist"></div>
+    </div>
+    <div id="release-next" class="next-release">›</div>
+  </div>
+</section>
+<section class="track-links">
+  <div class="track-link-bg-overlay">
+    <div id="release-pager" class="release-pager"></div>
+    <h1 id="release-title"></h1>
+    <h2><span id="release-from"></span> <span id="release-artist"></span></h2>
+    <p><b id="listen-online"></b> <span id="see-more-links"></span></p>
+    <div class="listen-online">
+      <a href="#" id="spotify" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/spotify.svg" alt="spotify-link">
+        <p>Spotify</p>
+      </a>
+      <a href="#" id="apple" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/apple.svg" alt="apple-link">
+        <p>Apple</p>
+      </a>
+      <a href="#" id="deezer" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/deezer.svg" alt="deezer-link">
+        <p>Deezer</p>
+      </a>
+      <a href="#" id="youtube" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/youtube.svg" alt="youtube-link">
+        <p>YouTube</p>
+      </a>
+      <a href="#" id="amazon" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/amazon.svg" alt="amazon-link">
+        <p>Amazon</p>
+      </a>
+      <a href="#" id="bandcamp" class="item" target="_blank" rel="noreferrer noopener">
+        <img src="./assets/img/listen/bandcamp.svg" alt="bandcamp-link">
+        <p>Bandcamp</p>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="credits">
+  <div id="release-background-bottom" class="blurred-background dystopie"></div>
+  <div class="credit-container">
+    <p><i id="published-on"></i> <span id="release-date"></span><br><a href="#" id="label-link" target="_blank" rel="noreferrer noopener"></a></p>
+  </div>
+</section>
+<a href="/" class="home"><img src="./assets/img/controls/home.svg"></a>
 <select id="lang-select">
   <option value="en"></option>
   <option value="fr"></option>
   <option value="es"></option>
   <option value="de"></option>
+  <option value="it"></option>
 </select>
 <div id="modal-overlay" class="modal-overlay"></div>
 <div id="loading-overlay" class="loading-overlay"></div>

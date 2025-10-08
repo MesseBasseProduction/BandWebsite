@@ -1,4 +1,4 @@
-main.bio {
+main.homepage {
   flex-direction: column;
   font-size: 1.4rem;
   height: auto;
@@ -76,6 +76,16 @@ main.bio {
     padding: 0 8%;
     padding-right: calc(8% + var(--default-scroll-size));
     width: 100%;
+    /* Only one child element */
+    &:has(> :last-child:nth-child(1)) {
+      grid-template-columns: 1fr;
+      max-width: 50%;
+    }
+    /* Two child elements */
+    &:has(> :last-child:nth-child(2)) {
+      grid-template-columns: 1fr 1fr;
+      max-width: 75%;
+    }
 
     div {
       aspect-ratio: 1 / 1;
@@ -163,10 +173,24 @@ main.bio {
 
       &.learn-more {
         font-style: italic;
+        text-transform: inherit;
       }
 
       &:first-of-type {
         margin-top: var(--spacing-tiny);
+      }
+    }
+
+    &.events {
+      div {
+        aspect-ratio: inherit;
+
+        p {
+          justify-content: flex-end;
+          opacity: 1;
+          padding-bottom: 1rem;
+          pointer-events: none;
+        }
       }
     }
   }

@@ -8,10 +8,13 @@
     "doublebass": "Bass",
     "drums": "Batterie"
   },
+  "eventsLink": "Erleben Sie uns live",
   "listenLink": "Siehe die Diskographie",
   "treeLink": "Finden Sie uns im Internet",
-  "musicians": "Die Musiker",
+  "events": "Kommende Veranstaltungen",
+  "pastEvents": "Vergangene Ereignisse",
   "works": "Stücke",
+  "musicians": "Die Musiker",
   "medias": "Durchschnitt",
   "pastMembers": "Frühere Mitglieder",
   "listenOnline": "Online anhören",
@@ -28,6 +31,7 @@
     "en": "🇬🇧 Englisch",
     "fr": "🇫🇷 Französisch",
     "es": "🇪🇸 Spanische",
-    "de": "🇩🇪 Deutsch"
+    "de": "🇩🇪 Deutsch",
+    "it": "🇮🇹 Italienisch"
   }
 }

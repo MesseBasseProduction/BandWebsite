@@ -42,71 +42,22 @@
   <meta name="twitter:description" content="Your band's description"/>
   <meta name="twitter:image:src" content="./assets/img/logo-social.png"/>
 </head>
-<body data-type="listen">
-<section class="track-playback">
-  <div id="release-background" class="blurred-background dystopie"></div>
-  <div class="featured-track-wrapper">
-    <div id="release-previous" class="previous-release">‹</div>
-    <div class="featured-track-container">
-      <img src="#" id="release-cover" alt="release-cover">
-      <div class="player">
-        <img src="./assets/img/controls/play.svg" id="play-pause" alt="play-icon">
-        <div class="progress-bar" id="progress-bar">
-          <div class="current-progress" id="current-progress"></div>
-        </div>
-        <p id="release-duration">46:30</p>
-      </div>
-      <div id="release-tracklist" class="release-tracklist"></div>
-    </div>
-    <div id="release-next" class="next-release">›</div>
-  </div>
-</section>
-<section class="track-links">
-  <div class="track-link-bg-overlay">
-    <div id="release-pager" class="release-pager"></div>
-    <h1 id="release-title"></h1>
-    <h2><span id="release-from"></span> <span id="release-artist"></span></h2>
-    <p><b id="listen-online"></b> <span id="see-more-links"></span></p>
-    <div class="listen-online">
-      <a href="#" id="spotify" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/spotify.svg" alt="spotify-link">
-        <p>Spotify</p>
-      </a>
-      <a href="#" id="apple" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/apple.svg" alt="apple-link">
-        <p>Apple</p>
-      </a>
-      <a href="#" id="deezer" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/deezer.svg" alt="deezer-link">
-        <p>Deezer</p>
-      </a>
-      <a href="#" id="youtube" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/youtube.svg" alt="youtube-link">
-        <p>YouTube</p>
-      </a>
-      <a href="#" id="amazon" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/amazon.svg" alt="amazon-link">
-        <p>Amazon</p>
-      </a>
-      <a href="#" id="bandcamp" class="item" target="_blank" rel="noreferrer noopener">
-        <img src="./assets/img/listen/bandcamp.svg" alt="bandcamp-link">
-        <p>Bandcamp</p>
-      </a>
-    </div>
-  </div>
-</section>
-<section class="credits">
-  <div id="release-background-bottom" class="blurred-background dystopie"></div>
-  <div class="credit-container">
-    <p><i id="published-on"></i> <span id="release-date"></span><br><a href="#" id="label-link" target="_blank" rel="noreferrer noopener"></a></p>
-  </div>
-</section>
-<a href="./index.html" class="home"><img src="./assets/img/controls/home.svg"></a>
+<body data-type="events">
+<div id="content-wrapper" class="content-wrapper">
+  <main class="events">
+    <h1 id="upcoming-section"></h1>
+    <section id="upcoming-events" class="upcoming-events"></section>
+    <h1 id="past-section"></h1>
+    <section id="past-events" class="past-events"></section>
+  </main>
+</div>
+<a href="/" class="home"><img src="./assets/img/controls/home.svg"></a>
 <select id="lang-select">
   <option value="en"></option>
   <option value="fr"></option>
   <option value="es"></option>
   <option value="de"></option>
+  <option value="it"></option>
 </select>
 <div id="modal-overlay" class="modal-overlay"></div>
 <div id="loading-overlay" class="loading-overlay"></div>

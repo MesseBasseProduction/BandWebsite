@@ -8,10 +8,13 @@
     "doublebass": "Contrabajo",
     "drums": "Batería"
   },
+  "eventsLink": "Míranos en vivo",
   "listenLink": "Ver la discografia",
   "treeLink": "Encuéntrenos en línea",
-  "musicians": "Los Músicos",
+  "events": "Próximos eventos",
+  "pastEvents": "Eventos pasados",
   "works": "Las Obras",
+  "musicians": "Los Músicos",
   "medias": "Medios",
   "pastMembers": "Miembros anteriores",
   "listenOnline": "Escuche en línea",
@@ -28,6 +31,7 @@
     "en": "🇬🇧 Inglés",
     "fr": "🇫🇷 Francés",
     "es": "🇪🇸 Español",
-    "de": "🇩🇪 Alemán"
+    "de": "🇩🇪 Alemán",
+    "it": "🇮🇹 Italiano"
   }
 }

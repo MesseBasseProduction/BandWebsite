@@ -3,76 +3,6 @@
     top: var(--spacing-small);
   }
 
-  main.creation {
-    .subpage-nav {
-      bottom: inherit;
-      flex-direction: inherit;
-      height: 2rem;
-      margin: 1rem 0;
-      top: 6rem;
-      width: 100%;
-
-      img {
-        height: 100%;
-        padding: 0 1rem;
-        width: unset;
-      }
-    }
-
-    .music {
-      padding: 0 3rem 0 1rem;
-
-      .band {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 0;
-
-        .band-image {
-          display: none;
-        }
-
-        .band-releases {
-          padding: 2rem 1rem;
-          position: inherit;
-          width: 100%;
-
-          .band-header {
-            h2 {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
-          }
-
-          .band-albums {
-            .album {
-              height: calc(95% - 3rem);
-            }
-          }
-        }
-      }
-    }
-
-    .video {
-      padding: 0 3rem 0 1rem;
-
-      .video-grid .embed-video h2 {
-        font-size: 1.4rem;
-      }
-    }
-
-    .photo {
-      padding: 0 3rem 0 1rem;
-    }
-  }
-
-  main.contact {
-    section {
-      display: inherit;
-      padding: 3rem 5%;
-    }
-  }
-
   .modal.credit {
     padding: 1rem;
     max-width: inherit;
@@ -116,7 +46,7 @@
     }
   }
 
-  main.bio nav {
+  main.homepage nav {
     .nav-content {
       padding: var(--spacing-large) var(--spacing-large);
       padding-right: calc(var(--spacing-large) + var(--default-scroll-size));
@@ -128,8 +58,8 @@
     }
   }
 
-  main.bio section,
-  main.bio figure {
+  main.homepage section,
+  main.homepage figure {
     padding: 0 var(--spacing-large);
     padding-right: calc(var(--spacing-large) + var(--default-scroll-size));
   }
@@ -147,7 +77,7 @@
     top: var(--spacing-small);
   }
 
-  main.bio {
+  main.homepage {
     nav {
       .nav-content {
         padding: var(--spacing-large) var(--spacing);
@@ -183,6 +113,13 @@
     }
 
     section {
+      /* Only one child element */
+      &:has(> :last-child:nth-child(1)),
+      &:has(> :last-child:nth-child(2)) {
+        grid-template-columns: inherit;
+        max-width: inherit;
+      }
+
       grid-template-columns: 100%;
       padding: 0 var(--spacing);
       padding-right: calc(var(--spacing) + var(--default-scroll-size));
@@ -200,6 +137,17 @@
 
       iframe {
         grid-column: 1;
+      }
+    }
+  }
+
+  main.events {
+    section {
+      /* Only one child element */
+      &:has(> :last-child:nth-child(1)),
+      &:has(> :last-child:nth-child(2)) {
+        grid-template-columns: inherit;
+        max-width: inherit;
       }
     }
   }

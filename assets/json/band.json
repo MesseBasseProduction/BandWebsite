@@ -98,6 +98,33 @@
       "range": "2015-2022"
     }
   ],
+  "events": [
+    {
+      "title": "NAC & Roll",
+      "picture": "Event1.webp",
+      "date": "2030-01-01",
+      "place": "Tour Eiffel - Paris",
+      "url": "https://messe-basse-production.com",
+      "description": {
+        "en": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "fr": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "de": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "es": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      }    
+    }, {
+      "title": "Rock & NAC",
+      "picture": "Event2.webp",
+      "date": "2010-01-01",
+      "place": "Tour Eiffel - Paris",
+      "url": "https://messe-basse-production.com",
+      "description": {
+        "en": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "fr": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "de": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "es": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      }    
+    }
+  ],
   "releases": [
     {
       "title": "Dystopie",
@@ -191,116 +218,6 @@
       ]
     },
     {
-      "title": "Crad' Bar Boogie",
-      "artist": "NAC",
-      "cover": "Crad.webp",
-      "audio": "CradExtract.mp3",
-      "date": "2021-10-31",
-      "duration": "6:08",
-      "label": "Messe Basse Production",
-      "labelLink": "https://messe-basse-production.com/",
-      "showOnMainPage": true,
-      "links": [
-        {
-          "type": "spotify",
-          "url": "https://open.spotify.com/album/4zeFpm6v6E2nuCBMSCFL8d"
-        }, {
-          "type": "apple",
-          "url": "https://music.apple.com/album/crad-bar-boogie/1588777286?i=1588777287"
-        }, {
-          "type": "amazon",
-          "url": "https://music.amazon.fr/albums/B09HRB5D81"
-        }, {
-          "type": "deezer",
-          "url": "https://www.deezer.com/fr/album/263542232"
-        }, {
-          "type": "youtube",
-          "url": "https://www.youtube.com/watch?v=c8WVsM9SDgc"
-        }, {
-          "type": "bandcamp",
-          "url": "https://nacband.bandcamp.com/album/crad-bar-boogie-single"
-        }
-      ],
-      "moreLinks": [
-        {
-          "type": "tidal",
-          "url": "https://listen.tidal.com/album/200014704"            
-        }, {
-          "type": "genius",
-          "url": "https://genius.com/albums/Nac-fra/Crad-bar-boogie-single"            
-        }, {
-          "type": "discogs",
-          "url": "https://www.discogs.com/release/20398864-NAC-Crad-Bar-Boogie"            
-        }, {
-          "type": "musicbrainz",
-          "url": "https://musicbrainz.org/release/3921323e-d906-47fe-bc17-e5d359cc4ea3"            
-        }
-      ],
-      "tracks": [
-        {
-          "title": "Crad' Bar Boogie",
-          "duration": "6:48",
-          "composer": "Pierre Toïgo",
-          "author": "David Béché"
-        }
-      ]
-    },
-    {
-      "title": "Tramp",
-      "artist": "NAC",
-      "cover": "Tramp.webp",
-      "audio": "TrampExtract.mp3",
-      "date": "2021-10-15",
-      "duration": "6:43",
-      "label": "Messe Basse Production",
-      "labelLink": "https://messe-basse-production.com/",
-      "showOnMainPage": true,
-      "links": [
-        {
-          "type": "spotify",
-          "url": "https://open.spotify.com/album/4DCYfTa2gWMaBvP6qNBEti"
-        }, {
-          "type": "apple",
-          "url": "https://music.apple.com/album/tramp-single/1588181001"
-        }, {
-          "type": "amazon",
-          "url": "https://music.amazon.fr/albums/B09HJTR29N"
-        }, {
-          "type": "deezer",
-          "url": "https://www.deezer.com/fr/album/262556472"
-        }, {
-          "type": "youtube",
-          "url": "https://www.youtube.com/watch?v=CsxhdwfJVyk"
-        }, {
-          "type": "bandcamp",
-          "url": "https://nacband.bandcamp.com/album/tramp-single-2"
-        }
-      ],
-      "moreLinks": [
-        {
-          "type": "tidal",
-          "url": "https://listen.tidal.com/album/199407447"            
-        }, {
-          "type": "genius",
-          "url": "https://genius.com/albums/Nac-fra/Tramp-single"            
-        }, {
-          "type": "discogs",
-          "url": "https://www.discogs.com/release/20398474-NAC-Tramp"            
-        }, {
-          "type": "musicbrainz",
-          "url": "https://musicbrainz.org/release/0c82ec60-852a-4c23-bc7b-2a4377f82702"            
-        }
-      ],
-      "tracks": [
-        {
-          "title": "Tramp",
-          "duration": "6:43",
-          "composer": "Arthur Beaulieu, Pierre Toïgo",
-          "author": "David Béché"
-        }
-      ]
-    },
-    {
       "title": "Nature Humaine Origins",
       "artist": "NAC",
       "cover": "Nature.webp",
@@ -352,170 +269,6 @@
           "duration": "8:14",
           "composer": "Lionel Baudet, Pierre Toïgo",
           "author": "Lionel Baudet"
-        }
-      ]
-    },
-    {
-      "title": "NAC Featuring Tay",
-      "artist": "NAC",
-      "cover": "Tay.webp",
-      "audio": "TayExtract.mp3",
-      "date": "2022-02-27",
-      "duration": "7:53",
-      "label": "Messe Basse Production",
-      "labelLink": "https://messe-basse-production.com/",
-      "showOnMainPage": true,
-      "links": [
-        {
-          "type": "spotify",
-          "url": "https://open.spotify.com/album/0qOPXOZkCebos2KEH4zNCQ"
-        }, {
-          "type": "apple",
-          "url": "https://music.apple.com/album/nac-tay-feat-tay-single/1617782182"
-        }, {
-          "type": "amazon",
-          "url": ""
-        }, {
-          "type": "deezer",
-          "url": ""
-        }, {
-          "type": "youtube",
-          "url": "https://www.youtube.com/watch?v=JPEKwYBWu4U&list=PLp5D05IpZHwKc4upT8elaHcabNvuo4cFl"
-        }, {
-          "type": "bandcamp",
-          "url": "https://nacband.bandcamp.com/album/nac-featuring-tay-single"
-        }
-      ],
-      "moreLinks": [
-        {
-          "type": "tidal",
-          "url": ""            
-        }, {
-          "type": "genius",
-          "url": "https://genius.com/artists/Nac-fra/"            
-        }, {
-          "type": "discogs",
-          "url": "https://www.discogs.com/release/22262149-NAC-NAC-Featuring-Tay"            
-        }, {
-          "type": "musicbrainz",
-          "url": ""            
-        }
-      ],
-      "tracks": [
-        {
-          "title": "NAC Featuring Tay",
-          "duration": "8:14",
-          "composer": "Lionel Baudet, Pierre Toïgo",
-          "author": "Armand Guyot, Photjanee On-Kham"
-        }
-      ]
-    },
-    {
-      "title": "NAC",
-      "artist": "NAC",
-      "cover": "NAC.webp",
-      "audio": "NACExtract.mp3",
-      "date": "2022-04-04",
-      "duration": "53:03",
-      "label": "Messe Basse Production",
-      "labelLink": "https://messe-basse-production.com/",
-      "showOnMainPage": true,
-      "links": [
-        {
-          "type": "spotify",
-          "url": "https://open.spotify.com/album/0DBcFyKpuSgAmXAIraCRk9"
-        }, {
-          "type": "apple",
-          "url": "https://music.apple.com/album/nac/1617782356"
-        }, {
-          "type": "amazon",
-          "url": ""
-        }, {
-          "type": "deezer",
-          "url": ""
-        }, {
-          "type": "youtube",
-          "url": "https://www.youtube.com/watch?v=aMyY7_0tz0Q&list=PLp5D05IpZHwLrnqhGJD0icnO2esXeVPU2"
-        }, {
-          "type": "bandcamp",
-          "url": "https://nacband.bandcamp.com/album/nac"
-        }
-      ],
-      "moreLinks": [
-        {
-          "type": "tidal",
-          "url": ""            
-        }, {
-          "type": "genius",
-          "url": "https://genius.com/albums/Nac-fra/Nac"            
-        }, {
-          "type": "discogs",
-          "url": "https://www.discogs.com/release/22707005-NAC-NAC"
-        }, {
-          "type": "musicbrainz",
-          "url": ""            
-        }
-      ],
-      "tracks": [
-        {
-          "title": "Oil Mechanic Life",
-          "duration": "3:59",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "C'Est Beau La Vie",
-          "duration": "5:11",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Badminton Man",
-          "duration": "6:51",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Malibu",
-          "duration": "5:16",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "La Chaise",
-          "duration": "3:39",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Fragment D'Amertume",
-          "duration": "6:04",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Le Jour Des Monstres",
-          "duration": "4:58",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Indigo",
-          "duration": "4:03",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "La Bande D4",
-          "duration": "6:53",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
-        },
-        {
-          "title": "Le Blues du Mille Pattes Jaune Et Bleu",
-          "duration": "6:09",
-          "composer": "Christophe Boulogne, Lionel Baudet, Pierre Toïgo",
-          "author": "Lionel Baudet, Pierre Toïgo"
         }
       ]
     }

@@ -1,0 +1,213 @@
+:root {
+  --spacing: 2rem;
+  --spacing-tiny: .5rem;
+  --spacing-small: 1rem;
+  --spacing-large: 4rem;
+
+  --color-main: #FFBF00;
+
+  --transition: .2s;
+  --transition-long: 1.2s;
+
+  --gradientStart: #3E6A79;
+  --gradientEnd: #8F6B00;
+  --imageFilter: invert(27%) sepia(28%) saturate(5861%) hue-rotate(138.3deg) brightness(120%) contrast(70%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-txt: rgb(15, 15, 15);
+    --color-txt-a1: rgba(15, 15, 15, .1);
+    --color-txt-a5: rgba(15, 15, 15, .5);
+
+    --color-bg: rgb(245, 245, 245);
+    --color-bg-a1: rgba(245, 245, 245, .1);
+    --color-bg-a5: rgba(245, 245, 245, .5);
+    --color-bg-alt: rgb(215, 215, 215);
+    --color-bg-alt-a5: rgba(215, 215, 215, .5);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-txt: rgb(245, 245, 245);
+    --color-txt-a1: rgba(245, 245, 245, .1);
+    --color-txt-a5: rgba(245, 245, 245, .5);
+
+    --color-bg: rgb(15, 15, 15);
+    --color-bg-a1: rgba(15, 15, 15, .1);
+    --color-bg-a5: rgba(15, 15, 15, .5);
+    --color-bg-alt: rgb(75, 75, 75);
+    --color-bg-alt-a5: rgba(75, 75, 75, .5);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-size: 62.5%;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(var(--color-bg), var(--color-bg-alt));
+  color: var(--color-txt);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+a {
+  display: block;
+  color: var(--color-main);
+  margin-bottom: var(--spacing-small);
+  font-size: 1.5rem;
+}
+
+button {
+  background: var(--color-bg-a1);
+  border: solid 1px var(--color-txt);
+  border-radius: .5rem;
+  color: var(--color-txt);
+  cursor: pointer;
+  padding: var(--spacing-small) var(--spacing);
+
+  transition: all var(--transition);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background: var(--color-txt-a1);
+  }
+}
+
+.content-wrapper {
+  height: 100%; /* So scrollbar can be endered on main wrapper */
+}
+
+main {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+select {
+  background: var(--color-bg);
+  border: solid 1px var(--color-txt-a5);
+  border-radius: .5rem;
+  color: var(--color-txt);
+  cursor: pointer;
+  padding: .2rem var(--spacing-small);
+  position: absolute;
+  right: var(--spacing);
+  top: var(--spacing);
+  z-index: 150;
+}
+
+@keyframes rotate-plane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+.home {
+  position: fixed;
+  height: var(--spacing);
+  left: var(--spacing);
+  top: var(--spacing);
+  width: var(--spacing);
+  z-index: 150;
+
+  @media (prefers-color-scheme: light) {
+    img {
+      filter: invert(1);
+    }
+  }
+
+  filter: invert(1) drop-shadow(0 0 .25rem var(--color-bg));
+  transition: filter var(--transition);
+
+  &:active,
+  &:focus,
+  &:hover {
+    filter: invert(1) drop-shadow(0 0 .75rem var(--color-main));
+  }
+}
+
+.modal-overlay {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  display: none;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  transition: all .4s;
+
+  .modal {
+    background: var(--color-bg);
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem rgba(255, 255, 255, .3);
+    color: var(--color-txt);
+    padding: 3rem;
+    position: relative;
+
+    p.close-modal {
+      cursor: pointer;
+      color: var(--color-txt);
+      font-size: 4rem;
+      margin: 0;
+      position: absolute;
+      right: 1rem;
+      top: 0;
+      user-select: none;
+      transition: color var(--transition);
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: var(--color-main);
+      }
+    }
+  }
+}
+
+.loading-overlay {
+  background: radial-gradient(var(--color-bg-alt), var(--color-bg));
+  cursor: progress;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 201;
+
+  transition: all var(--transition-long);
+
+  &::before {
+    content: '';
+    background-color: var(--color-txt);
+    border-radius: .5rem;
+    height: var(--spacing-large);
+    left: calc(50% - var(--spacing));
+    position: absolute;
+    top: 50%;
+    width: var(--spacing-large);
+
+    animation: rotate-plane var(--transition-long) infinite ease-in-out;
+  }
+}

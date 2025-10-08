@@ -1,4 +1,4 @@
-FROM node:17-alpine
+FROM node:18-alpine
 
 RUN mkdir /band_website
 WORKDIR /band_website
