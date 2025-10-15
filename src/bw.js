@@ -2,7 +2,7 @@ import { Color, Solver } from './js/FilterGenerator.js';
 import './bw.scss';
 
 
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.2.1';
 const APP_NAME = 'BandWebsite';
 const DEBUG = false;
 
@@ -176,48 +176,61 @@ class BW {
       }
     }
 
-    // Iterate band release to build albums
-    for (let i = 0; i < this._band.releases.length; ++i) {
-      if (this._band.releases[i].showOnMainPage === true) {
-        const container = document.createElement('DIV');
-        container.dataset.url = this._getReleaseLink(this._band.releases[i].links);
-        const picture = document.createElement('IMG');
-        picture.src = `./assets/img/releases/${this._band.releases[i].cover}`;
-        const date = new Intl.DateTimeFormat(this._lang, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }).format(new Date(this._band.releases[i].date));
-        const label = document.createElement('P');
-        label.innerHTML = `
-          ${this._band.releases[i].title}
-          <span>${this._band.releases[i].artist}</span>
-          <span>${date}</span>
-        `;
-        container.addEventListener('click', this._openUrl.bind(this, container.dataset.url));
-        container.appendChild(picture);
-        container.appendChild(label);
-        document.getElementById('releases').appendChild(container);
+    if (this._band.releases.length > 0) {
+      // Iterate band release to build albums
+      for (let i = 0; i < this._band.releases.length; ++i) {
+        if (this._band.releases[i].showOnMainPage === true) {
+          const container = document.createElement('DIV');
+          container.dataset.url = this._getReleaseLink(this._band.releases[i].links);
+          const picture = document.createElement('IMG');
+          picture.src = `./assets/img/releases/${this._band.releases[i].cover}`;
+          const date = new Intl.DateTimeFormat(this._lang, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }).format(new Date(this._band.releases[i].date));
+          const label = document.createElement('P');
+          label.innerHTML = `
+            ${this._band.releases[i].title}
+            <span>${this._band.releases[i].artist}</span>
+            <span>${date}</span>
+          `;
+          container.addEventListener('click', this._openUrl.bind(this, container.dataset.url));
+          container.appendChild(picture);
+          container.appendChild(label);
+          document.getElementById('releases').appendChild(container);
+        }
       }
+    } else {
+      document.querySelector('#works-section').parentNode.removeChild(document.querySelector('#works-section'));
+      document.querySelector('#releases').parentNode.removeChild(document.querySelector('#releases'));
+      document.querySelector('#listen-link').parentNode.removeChild(document.querySelector('#listen-link'));
     }
 
-    // Iterate through band members
-    for (let i = 0; i < this._band.members.length; ++i) {
-      const container = document.createElement('DIV');
-      container.dataset.artist = this._band.members[i].fullName;
-      const picture = document.createElement('IMG');
-      picture.src = `./assets/img/artists/${this._band.members[i].picture}`;
-      const label = document.createElement('P');
-      label.innerHTML = `
-        ${this._band.members[i].fullName}
-        <span>${(this._band.members[i].pictureCredit !== '') ? '© ' + this._band.members[i].pictureCredit : ''}</span>
-        <span class="learn-more">${this._nls.learnMore}</span>
-      `;
-      container.addEventListener('click', this._artistModal.bind(this, this._band.members[i]));
-      container.appendChild(picture);
-      container.appendChild(label);
-      document.getElementById('artists').appendChild(container);
+    if (this._band.members.length > 0) {
+      // Iterate through band members
+      for (let i = 0; i < this._band.members.length; ++i) {
+        const container = document.createElement('DIV');
+        container.dataset.artist = this._band.members[i].fullName;
+        const picture = document.createElement('IMG');
+        picture.src = `./assets/img/artists/${this._band.members[i].picture}`;
+        const label = document.createElement('P');
+        label.innerHTML = `
+          ${this._band.members[i].fullName}
+          <span>${(this._band.members[i].pictureCredit !== '') ? '© ' + this._band.members[i].pictureCredit : ''}</span>
+          <span class="learn-more">${this._nls.learnMore}</span>
+        `;
+        container.addEventListener('click', this._artistModal.bind(this, this._band.members[i]));
+        container.appendChild(picture);
+        container.appendChild(label);
+        document.getElementById('artists').appendChild(container);
+      }
+    } else {
+      document.querySelector('#works-section').parentNode.removeChild(document.querySelector('#works-section'));
+      document.querySelector('#releases').parentNode.removeChild(document.querySelector('#releases'));
+      document.querySelector('#listen-link').parentNode.removeChild(document.querySelector('#listen-link'));
     }
+
     // Iterate through past band members if any
     if (this._band.pastMembers.length > 0) {
       const container = document.createElement('DIV');
@@ -232,21 +245,30 @@ class BW {
       document.getElementById('artists').appendChild(container);
     }
 
-    // Iterate through band's medias
-    for (let i = 0; i < this._band.medias.length; ++i) {
-      let container = null;
-      if (this._band.medias[i].type === 'iframe') {
-        container = document.createElement('IFRAME');
-        container.title = this._band.medias[i].title;
-        container.src = this._band.medias[i].link;
-        container.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
-        container.setAttribute('frameborder', '0');
-        container.setAttribute('allowfullscreen', '1');
-      } else if (this._band.medias[i].type === 'image') {
-        container = document.createElement('IMG');
-        container.src = this._band.medias[i].link;
+    if (this._band.medias.length > 0) {
+      // Iterate through band's medias
+      for (let i = 0; i < this._band.medias.length; ++i) {
+        let container = null;
+        if (this._band.medias[i].type === 'iframe') {
+          container = document.createElement('IFRAME');
+          container.title = this._band.medias[i].title;
+          container.src = this._band.medias[i].link;
+          container.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
+          container.setAttribute('frameborder', '0');
+          container.setAttribute('allowfullscreen', '1');
+        } else if (this._band.medias[i].type === 'image') {
+          container = document.createElement('IMG');
+          container.src = this._band.medias[i].link;
+        }
+        document.getElementById('medias').appendChild(container);
       }
-      document.getElementById('medias').appendChild(container);
+    } else {
+      document.querySelector('#medias-section').parentNode.removeChild(document.querySelector('#medias-section'));
+      document.querySelector('#medias').parentNode.removeChild(document.querySelector('#medias'));
+    }
+
+    if (this._band.links.length === 0) {
+      document.querySelector('#tree-link').parentNode.removeChild(document.querySelector('#tree-link'));
     }
 
     // Now build page scroll
@@ -273,14 +295,14 @@ class BW {
   _buildEventsPage() {
     if (DEBUG === true) { console.log(`6. Init website with the artist event page`); }
 
-    // Page specific nls
-    document.querySelector('#upcoming-section').innerHTML = this._nls.events;
-    document.querySelector('#past-section').innerHTML = this._nls.pastEvents;
-
     // In case no event, redirect to index
     if (this._band.events.length === 0) {
       window.location = '/';
     }
+
+    // Page specific nls
+    document.querySelector('#upcoming-section').innerHTML = this._nls.events;
+    document.querySelector('#past-section').innerHTML = this._nls.pastEvents;
 
     let now = new Date();
     now = now.toISOString().split('T')[0];
@@ -346,6 +368,11 @@ class BW {
 
   _buildListenPage() {
     if (DEBUG === true) { console.log(`6. Init website with the artist listen page`); }
+
+    // In case no releases, redirect to index
+    if (this._band.releases.length === 0) {
+      window.location = '/';
+    }
 
     // Page specific nls
     document.querySelector('#release-from').innerHTML = this._nls.from;
@@ -529,6 +556,11 @@ class BW {
 
   _buildTreePage() {
     if (DEBUG === true) { console.log(`6. Init website with the artist link tree`); }
+
+    // In case no links, redirect to index
+    if (this._band.links.length === 0) {
+      window.location = '/';
+    }
 
     // Iterate over link to create link content
     for (let i = 0; i < this._band.links.length; ++i) {

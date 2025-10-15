@@ -1,9 +1,9 @@
 # BandWebsite
 
-![](https://badgen.net/badge/version/1.2.0/blue)
+![](https://badgen.net/badge/version/1.2.1/blue)
 [![License](https://img.shields.io/github/license/MesseBasseProduction/BandWebsite.svg)](https://github.com/MesseBasseProduction/BandWebsite/blob/main/LICENSE)
 
-A static website template for a band, providing pages where one can find the band's biography, a list of current and past members, a list of the band's releases and a set of medias. Additionnaly to this landing page, the template also provides a page to listen to tracks and finally, a link tree to share all of the band's links! Translated in French 🇫🇷, English 🇬🇧, Spanish 🇪🇸 and German 🇩🇪. This website was meant to be as light as possible, keeping it's assets to the minimum so the navigation is lightning fast (~50Ko of bunddled assets)!
+A static website template for a band, providing pages where one can find the band's biography, a list of current and past members, a list of the band's releases and a set of medias. Additionnaly to this landing page, the template also provides a page to listen to tracks and finally, a link tree to share all of the band's links! Translated in French 🇫🇷, English 🇬🇧, Spanish 🇪🇸, Italian 🇮🇹 and German 🇩🇪. This website was meant to be as light as possible, keeping it's assets to the minimum so the navigation is lightning fast (~50Ko of bunddled assets)!
 
 # Get started
 

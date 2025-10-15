@@ -4,7 +4,7 @@ const compression = require('compression');
 const zlib = require('node:zlib');
 
 // App and preferences
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.2.1';
 const APP_NAME = 'BandWebsite';
 const APP_PORT = 1337;
 
