@@ -3,9 +3,13 @@
     "leadvocals": "Hauptgesang",
     "backvocals": "Chöre",
     "guitar": "Gitarre",
+    "saxophone": "Saxophon",
+    "trumpet": "Trompete",
+    "trombone": "Posaune",
     "keyboard": "Tastatur",
     "bass": "Niedrig",
     "doublebass": "Bass",
+    "percussion": "Schlagzeug",
     "drums": "Batterie"
   },
   "eventsLink": "Erleben Sie uns live",

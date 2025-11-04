@@ -3,9 +3,13 @@
     "leadvocals": "Voce principale",
     "backvocals": "Cori posteriori",
     "guitar": "Chitarra",
+    "saxophone": "Sassofono",
+    "trumpet": "Tromba",
+    "trombone": "Trombone",
     "keyboard": "Tastiera",
     "bass": "Basso",
     "doublebass": "Contrabbasso",
+    "percussion": "Percussione",
     "drums": "Batteria"
   },
   "eventsLink": "Ci vediamo dal vivo",

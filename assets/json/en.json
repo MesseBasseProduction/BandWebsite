@@ -3,9 +3,13 @@
     "leadvocals": "Lead Singer",
     "backvocals": "Back Vocals",
     "guitar": "Guitar",
+    "saxophone": "Saxophone",
+    "trumpet": "Trumpet",
+    "trombone": "Trombone",
     "keyboard": "Keyboard",
     "bass": "Bass",
     "doublebass": "Double Bass",
+    "percussion": "Percussion",
     "drums": "Drums"
   },
   "eventsLink": "See us live",

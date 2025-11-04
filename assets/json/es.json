@@ -2,10 +2,14 @@
   "roles": {
     "leadvocals": "Voces Principales",
     "backvocals": "Coro",
-    "guitar": "GitarreGuitarra",
+    "guitar": "Gitarra",
+    "saxophone": "Saxófono",
+    "trumpet": "Trompeta",
+    "trombone": "Trombón",
     "keyboard": "Teclado",
     "bass": "Bajo",
     "doublebass": "Contrabajo",
+    "percussion": "Percusión",
     "drums": "Batería"
   },
   "eventsLink": "Míranos en vivo",

@@ -3,9 +3,13 @@
     "leadvocals": "Chant Principal",
     "backvocals": "Chœurs",
     "guitar": "Guitare",
+    "saxophone": "Saxophone",
+    "trumpet": "Trompette",
+    "trombone": "Trombone",
     "keyboard": "Clavier",
     "bass": "Basse",
     "doublebass": "Contrebasse",
+    "percussion": "Percussion",
     "drums": "Batterie"
   },
   "eventsLink": "Nous voir en concert",
