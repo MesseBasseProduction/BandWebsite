@@ -628,7 +628,11 @@ class BW {
             container.querySelector('#artist-roles').innerHTML += ', ';
           }
         }
-        container.querySelector('#artist-roles').innerHTML += ` ${this._nls.since} ${artist.range.split('-')[0]}`;
+
+        if (artist.range.length > 0) {
+          container.querySelector('#artist-roles').innerHTML += ` ${this._nls.since} ${artist.range.split('-')[0]}`;
+        }
+
         container.querySelector('#artist-bio').innerHTML = this.applyLangOnAsset(artist.bio);
         container.querySelector('#close-modal-button').innerHTML = this._nls.close;
         overlay.appendChild(container);

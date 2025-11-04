@@ -18,7 +18,8 @@ main.homepage {
 
     .band-picture {
       border-radius: .5rem;
-      height: 50rem;
+      max-height: 50rem;
+      max-width: 100%;
       margin-bottom: var(--spacing);
     }
 
